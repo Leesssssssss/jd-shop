@@ -1,0 +1,160 @@
+<template>
+  <div>
+    <!-- 顶部 -->
+    <div class="header">
+      <img @click="back" src="../../static/img/back.png" alt="">
+      <span class="headerText">商品</span>
+      <span class="headerText">评价</span>
+      <span class="headerText">详情</span>
+      <span class="headerText">推荐</span>
+      <img src="../../static/img/lookMore.png" alt="">
+    </div>
+
+    <div class="box1"></div>
+
+    <!-- 轮播图 -->
+    <div class="swiper">
+      <swiper :options="swiperOption" ref="mySwiper">
+        <swiper-slide v-for='(item, index) in banners' :key="index">
+          <img :src="item">
+        </swiper-slide>
+        <div id="swiperOwn" class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
+
+    <!-- 产品名称、价钱 -->
+    <div class="goodInfo">
+      <div class="goodInfoName">
+        <img src="../../static/img/ziying.png" alt="">
+        <span class="goodInfoNameText">韩国三养（SAMYANG）方便面 火鸡面 超辣鸡肉味拌面 700g（140g*5包入）</span>
+      </div>
+      <div class="goodInfoR">超市周年庆，礼献中秋，享各国美食，尽在京东进口粮油调味！京东自营，质量把控</div>
+      <div class="goodInfoPrice">
+        <span class="goodInfoPriceS">￥</span><span class="goodInfoPriceL">27</span><span class="goodInfoPriceS">.90</span>
+      </div>
+      <div class="baitiao">
+        <span class="baitiaoTitle">白条</span>
+        <span class="baitiaoText">【激活白条】新用户下单立减10元</span>
+        <img src="../../static/img/lookMore.png" alt="">
+      </div>
+    </div>
+
+    <!-- 口味 -->
+    <div class="choose">
+      <div class="chooseKouwei">
+        <span class="chooseKouweiTitle">口味</span>
+        <div @click="chooseKouwei" class="chooseKouwei1" v-bind:class="{ chooseKouwei2: red1 }">火鸡面</div>
+        <div @click="chooseKouwei" class="chooseKouwei1" v-bind:class="{ chooseKouwei2: red2 }">火鸡面*1 + 辛拉面*1</div>
+      </div>
+      <div class="chooseCount">
+        <span class="chooseCountTitle">数量</span>
+        <div class="chooseCountBox">
+          <img :src="minus" @click="toMinus" alt="">
+          <div class="chooseCountBoxInput"><input type="text" v-model="count" value="1"></div>
+          <img :src="add" @click="toAdd" alt="">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="box2"></div>
+    <!-- 底部 -->
+    <div class="tab">
+      <div class="tabItem">
+        <img src="../../static/img/chat.png" alt="">
+        <span class="tabItemText">联系客服</span>
+      </div>
+      <div class="tabItem">
+        <img src="../../static/img/shop.png" alt="">
+        <span class="tabItemText">进店</span>
+      </div>
+      <div class="tabItem" @click="toCart">
+        <img src="../../static/img/cartSmall.png" alt="">
+        <span class="tabItemText">购物车</span>
+      </div>
+      <button class="addCart" @click="addCart">加入购物车</button>
+      <button class="buy">立即购买</button>
+    </div>
+
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      // 轮播图
+      banners: [
+        "../../static/img/huojimian.jpg",
+        "../../static/img/huojimian1.jpg"
+      ],
+      // 轮播图配置
+      swiperOption: {
+        spaceBetween: 30,
+        centeredSlides: true,
+        // loop: true,
+        // autoplay: {
+        //   delay: 2000,
+        //   disableOnInteraction: false
+        // },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        }
+      },
+      red1: true,
+      red2: false,
+      count: 1,
+      minus: '../../static/img/unMinus.png',
+      add: '../../static/img/add.png',
+      success: false
+    }
+  },
+  watch: {
+    count: function(val, oldval) {
+      console.log(val);
+      if (val == 1) {
+        this.minus = '../../static/img/unMinus.png';
+      } 
+      if (val != 1) {
+        this.minus = '../../static/img/minus.png';
+      }
+    }
+  },
+  methods: {
+    back() {
+      this.$router.go(-1);
+    },
+    chooseKouwei() {
+      this.red1 = !this.red1;
+      this.red2 = !this.red2;
+    },
+    toMinus() {
+      if (this.count != 1) {
+        this.count -= 1;
+      }
+    },
+    toAdd() {
+      this.count += 1;
+    },
+    toCart() {
+      this.$router.push({ 'path': '/cart' });
+    },
+    addCart() {
+      this.$notify({
+        title: '成功',
+        message: '添加购物车成功',
+        type: 'success',
+        offset: 100,
+        showClose: false
+      });
+      this.success = true;
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+@import './scss/goodDetail.scss';
+</style>
