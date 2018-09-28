@@ -26,7 +26,7 @@
     <div class="goodInfo">
       <div class="goodInfoName">
         <img src="../../static/img/ziying.png" alt="">
-        <span class="goodInfoNameText">韩国三养（SAMYANG）方便面 火鸡面 超辣鸡肉味拌面 700g（140g*5包入）</span>
+        <span class="goodInfoNameText">{{goodName}}</span>
       </div>
       <div class="goodInfoR">超市周年庆，礼献中秋，享各国美食，尽在京东进口粮油调味！京东自营，质量把控</div>
       <div class="goodInfoPrice">
@@ -44,7 +44,7 @@
       <div class="chooseKouwei">
         <span class="chooseKouweiTitle">口味</span>
         <div @click="chooseKouwei" class="chooseKouwei1" v-bind:class="{ chooseKouwei2: red1 }">火鸡面</div>
-        <div @click="chooseKouwei" class="chooseKouwei1" v-bind:class="{ chooseKouwei2: red2 }">火鸡面*1 + 辛拉面*1</div>
+        <div @click="chooseKouwei" class="chooseKouwei1" v-bind:class="{ chooseKouwei2: red2 }">辛拉面</div>
       </div>
       <div class="chooseCount">
         <span class="chooseCountTitle">数量</span>
@@ -81,6 +81,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -103,6 +105,9 @@ export default {
           clickable: true
         }
       },
+      goodName: '韩国三养（SAMYANG）方便面 火鸡面 超辣鸡肉味拌面 700g（140g*5包入）',
+      pic: 'https://img11.360buyimg.com/evalpic/s240x240_jfs/t18781/125/2257798196/348908/1ef22cd9/5aed3238N5a4bc8f3.jpg',
+      price: '27.90',
       red1: true,
       red2: false,
       count: 1,
@@ -150,6 +155,25 @@ export default {
         showClose: false
       });
       this.success = true;
+      if (this.success === true) {
+        var kouwei;
+        if (this.red1 === true) {
+          kouwei = '火鸡面'
+        } else {
+          kouwei = '辛拉面'
+        }
+        axios.post('http://localhost:7001/addCart', { 
+          goodName: this.goodName, 
+          kouwei: kouwei, 
+          count: this.count, 
+          price: this.price,
+          pic: this.pic,
+          userName: localStorage.userName 
+        }).then(result => {
+          var result = result.data;
+          console.log(result);
+        });
+      }
     }
   }
 }

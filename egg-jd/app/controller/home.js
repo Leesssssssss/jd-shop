@@ -51,7 +51,35 @@ class HomeController extends Controller {
     } else {
       ctx.body = '账号或密码错误！';
     }
+  }
 
+  // 添加购物车
+  async addCart() {
+    const ctx = this.ctx;
+    var kouwei = ctx.request.body.kouwei;
+    var count = ctx.request.body.count;
+    var goodName = ctx.request.body.goodName;
+    var price = ctx.request.body.price;
+    var pic = ctx.request.body.pic;
+    var userName = ctx.request.body.userName;
+
+    const User = ctx.model.User;
+    var getUserName = await User.find({ userName: userName }, function(err, docs){
+      var newUser = docs[0];
+      var good = {
+        goodName: goodName,
+        count: count,
+        kouwei: kouwei,
+        price: price,
+        pic: pic
+      }
+      newUser.cart = newUser.cart.concat(good);
+      newUser.save();
+      console.log(newUser);
+    });
+
+
+    ctx.body = 'ok';
   }
 
 

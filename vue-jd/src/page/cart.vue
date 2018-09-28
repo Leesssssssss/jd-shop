@@ -7,7 +7,7 @@
       <img src="../../static/img/lookMore.png" alt="">
     </div>
 
-    <!-- 未登录状态 -->
+    <!-- 购物车为空 -->
     <div class="unLogin">
       <img src="../../static/img/cart.png" alt="">
       <div class="unLoginText">{{text}}</div>
