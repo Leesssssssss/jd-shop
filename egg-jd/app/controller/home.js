@@ -77,9 +77,18 @@ class HomeController extends Controller {
       newUser.save();
       console.log(newUser);
     });
-
-
     ctx.body = 'ok';
+  }
+
+  // 获取购物车商品
+  async getCart() {
+    const ctx = this.ctx;
+    var userName = ctx.request.body.userName;
+
+    const User = ctx.model.User;
+    var getUserName = await User.find({ userName: userName });
+
+    ctx.body = getUserName;
   }
 
 
