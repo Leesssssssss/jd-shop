@@ -31,3 +31,6 @@ vue写的仿京东商城
 
 个人信息</br>
 ![geren](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/5.png)</br></br>
+
+商品详情</br>
+![xiangqing](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/6.png)</br></br>
