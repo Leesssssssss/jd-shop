@@ -81,7 +81,8 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import { MessageBox  } from "mint-ui";
 
 export default {
   data() {
@@ -105,25 +106,27 @@ export default {
           clickable: true
         }
       },
-      goodName: '韩国三养（SAMYANG）方便面 火鸡面 超辣鸡肉味拌面 700g（140g*5包入）',
-      pic: 'https://img11.360buyimg.com/evalpic/s240x240_jfs/t18781/125/2257798196/348908/1ef22cd9/5aed3238N5a4bc8f3.jpg',
-      price: '27.90',
+      goodName:
+        "韩国三养（SAMYANG）方便面 火鸡面 超辣鸡肉味拌面 700g（140g*5包入）",
+      pic:
+        "https://img11.360buyimg.com/evalpic/s240x240_jfs/t18781/125/2257798196/348908/1ef22cd9/5aed3238N5a4bc8f3.jpg",
+      price: "27.90",
       red1: true,
       red2: false,
       count: 1,
-      minus: '../../static/img/unMinus.png',
-      add: '../../static/img/add.png',
+      minus: "../../static/img/unMinus.png",
+      add: "../../static/img/add.png",
       success: false
-    }
+    };
   },
   watch: {
     count: function(val, oldval) {
       console.log(val);
       if (val == 1) {
-        this.minus = '../../static/img/unMinus.png';
-      } 
+        this.minus = "../../static/img/unMinus.png";
+      }
       if (val != 1) {
-        this.minus = '../../static/img/minus.png';
+        this.minus = "../../static/img/minus.png";
       }
     }
   },
@@ -144,41 +147,37 @@ export default {
       this.count += 1;
     },
     toCart() {
-      this.$router.push({ 'path': '/cart' });
+      this.$router.push({ path: "/cart" });
     },
     addCart() {
-      this.$notify({
-        title: '成功',
-        message: '添加购物车成功',
-        type: 'success',
-        offset: 100,
-        showClose: false
-      });
+      MessageBox('提示', '添加购物车成功！');
       this.success = true;
       if (this.success === true) {
         var kouwei;
         if (this.red1 === true) {
-          kouwei = '火鸡面'
+          kouwei = "火鸡面";
         } else {
-          kouwei = '辛拉面'
+          kouwei = "辛拉面";
         }
-        axios.post('http://localhost:7001/addCart', { 
-          goodName: this.goodName, 
-          kouwei: kouwei, 
-          count: this.count, 
-          price: this.price,
-          pic: this.pic,
-          userName: localStorage.userName 
-        }).then(result => {
-          var result = result.data;
-          console.log(result);
-        });
+        axios
+          .post("http://localhost:7001/addCart", {
+            goodName: this.goodName,
+            kouwei: kouwei,
+            count: this.count,
+            price: this.price,
+            pic: this.pic,
+            userName: localStorage.userName
+          })
+          .then(result => {
+            var result = result.data;
+            console.log(result);
+          });
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import './scss/goodDetail.scss';
+@import "./scss/goodDetail.scss";
 </style>

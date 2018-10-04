@@ -64,30 +64,61 @@ class HomeController extends Controller {
     var userName = ctx.request.body.userName;
 
     const User = ctx.model.User;
-    var getUserName = await User.find({ userName: userName }, function(err, docs){
-      var newUser = docs[0];
-      var good = {
-        goodName: goodName,
-        count: count,
-        kouwei: kouwei,
-        price: price,
-        pic: pic
-      }
-      newUser.cart = newUser.cart.concat(good);
-      newUser.save();
-      console.log(newUser);
-    });
+    var good = {
+      goodName: goodName,
+      count: count,
+      kouwei: kouwei,
+      price: price,
+      pic: pic,
+      checkStatus: false
+    }
+    await User.update({ userName: userName }, { $push: { cart: { $each:[good], $position: 0 }}});
+    // var getUserName = await User.find({ userName: userName }, function (err, docs) {
+    //   var newUser = docs[0];
+      
+    //   newUser.cart = newUser.cart.unshift(good);
+    //   newUser.save();
+    //   console.log(newUser);
+    // });
     ctx.body = 'ok';
   }
 
   // 获取购物车商品
   async getCart() {
     const ctx = this.ctx;
-    var userName = ctx.request.body.userName;
+    var userName = ctx.request.query.userName;
 
     const User = ctx.model.User;
     var getUserName = await User.find({ userName: userName });
 
+    ctx.body = getUserName;
+  }
+
+  // 修改购物车商品信息
+  async updateCart() {
+    const ctx = this.ctx;
+    const userName = ctx.request.body.userName;
+    const _id = ctx.request.body._id;
+    const checkStatus = ctx.request.body.checkStatus;
+    const count = ctx.request.body.count;
+
+    const User = ctx.model.User;
+    await User.update({ userName: userName, 'cart._id': _id }, { $set: { 'cart.$.checkStatus': checkStatus, 'cart.$.count': count } });
+
+    var getUserName = await User.find({ userName: userName });
+    ctx.body = getUserName;
+  }
+
+  // 删除购物车商品
+  async deleteGood() {
+    const ctx = this.ctx;
+    const userName = ctx.request.body.userName;
+    const _id = ctx.request.body._id;
+
+    const User = ctx.model.User;
+    await User.update({ userName: userName }, { $pull: { cart: { _id: _id } } });
+    
+    var getUserName = await User.find({ userName: userName });
     ctx.body = getUserName;
   }
 

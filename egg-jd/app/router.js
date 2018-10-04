@@ -9,5 +9,8 @@ module.exports = app => {
   router.post('/signUp', controller.home.signUp);
   router.post('/login', controller.home.login);
   router.post('/addCart', controller.home.addCart);
-  router.post('/getCart', controller.home.getCart);
+  router.get('/getCart', controller.home.getCart);
+  router.post('/updateCart', controller.home.updateCart);
+  router.post('/deleteGood', controller.home.deleteGood);
+
 };

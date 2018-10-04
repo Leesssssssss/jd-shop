@@ -14,15 +14,15 @@
       <button v-show="loginBtn" class="unLoginBtn" @click="toLogin">登录</button>
     </div>
 
-    <!-- 购物车不为空 -->
+    <!-- 购物车不为空展示商品信息 -->
     <div class="cart" v-show="cart">
       <div class="shopName">
-        <div class="checkBox"></div>
+        <div v-bind:class="{ checkBoxR: allChoose, checkBox: !allChoose }" @click="choose"></div>
         <img src="../../static/img/jdd.png" alt="">
         <span class="shopNameTitle">京东自营</span>
       </div>
-      <div class="goodList" v-for="good in goods">
-        <div class="checkBox"></div>
+      <div class="goodList" v-for="(good,index) in goods">
+        <div @click="checkHandle(good)" v-bind:class='{ checkBoxR: good.checkStatus, checkBox:!good.checkStatus }'></div>
         <img :src="good.pic" alt="">
         <div class="goodInfo">
           <div class="goodInfoTitle">
@@ -33,12 +33,31 @@
           <div class="goodInfoPriceAndCount">
             <div class="goodInfoPrice">￥{{good.price}}</div>
             <div class="chooseCountBox">
-              <img :src="minus" @click="toMinus" alt="">
-              <div class="chooseCountBoxInput"><input type="text" v-model="count" value="1"></div>
-              <img :src="add" @click="toAdd" alt="">
+              <img :src="good.count === 1 ? minus:unMinus" @click="toMinus(good)" alt="">
+              <div class="chooseCountBoxInput"><input type="number" v-model.number="good.count" @blur="change(good)" onkeypress="return(/[\d]/.test(String.fromCharCode(event.keyCode)))"></div>
+              <img :src="add" @click="toAdd(good)" alt="">
             </div>
           </div>
+          <div class="goodInfoDelete" @click="deleteGood(good)">删除</div>
         </div>
+      </div>
+    </div>
+
+    <div class="box"></div>
+    <!-- 底部 -->
+    <div class="tab" v-show="cart">
+      <div class="tabLeft">
+        <div :class="{ checkBoxR: allChoose, checkBox: !allChoose }" @click="choose"></div>
+        <div class="tabLeftText">全选</div>
+      </div>
+      <div class="tabRight">
+        <div class="price">
+          <div class="priceTop">
+            <span class="priceTopB">总计：</span><span class="priceTopR">￥{{price}}</span>
+          </div>
+          <div class="priceBottom">总额￥{{price}}  立减￥0.00</div>
+        </div>
+        <button :class="{ toBuyR: haveGood, toBuy: !haveGood }">去结算({{num}}件)</button>
       </div>
     </div>
 
@@ -46,48 +65,95 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import { MessageBox } from "mint-ui";
 
 export default {
   data() {
     return {
       emptyCart: true,
       cart: false,
-      text: '登录后可同步购物车中商品',
+      text: "登录后可同步购物车中商品",
       loginBtn: true,
       goods: [],
-      count: 1,
-      minus: '../../static/img/unMinus.png',
-      add: '../../static/img/add.png'
-    }
+      minus: "../../static/img/unMinus.png",
+      unMinus: "../../static/img/minus.png",
+      add: "../../static/img/add.png",
+      allChoose: false,
+      checked: false,
+      haveGood: false
+    };
   },
-  created() {
-    if (localStorage.login === 'login') {
-      this.loginBtn = false;
-      this.text = '购物车空空如也，去逛逛吧~';
-      axios.post('http://localhost:7001/getCart',{ userName: localStorage.userName }).then(result => {
-        var cart = result.data[0].cart;
-        this.goods = cart;
-        console.log(cart);
-        if (cart.length !== 0) {
-          this.emptyCart = false;
-          this.cart = true;
+  computed: {
+    // 计算总价
+    price() {
+      var price = 0;
+      for (var i = 0; i < this.goods.length; i++) {
+        if (this.goods[i].checkStatus !== true) {
+          continue;
         } else {
-          this.emptyCart = true;
-          this.cart = false;
+          price += this.goods[i].count * parseFloat(this.goods[i].price);
         }
-      });
+      }
+      let totalPrice = price.toFixed(2);
+      return totalPrice;
+    },
+    num() {
+      var num = 0;
+      for (var i = 0; i < this.goods.length; i++) {
+        if (this.goods[i].checkStatus !== true) {
+          continue;
+        } else {
+          num += this.goods[i].count;
+        }
+      }
+      if (num !== 0) {
+        this.haveGood = true;
+      } else {
+        this.haveGood = false;
+      }
+      return num;
     }
   },
   watch: {
-    count: function(val, oldval) {
-      console.log(val);
-      if (val == 1) {
-        this.minus = '../../static/img/unMinus.png';
-      } 
-      if (val != 1) {
-        this.minus = '../../static/img/minus.png';
-      }
+    goods: {
+      handler: function(val, oldval) {
+        for (var i = 0; i < val.length; i++) {
+          if (val[i].checkStatus !== true) {
+            this.allChoose = false;
+            break;
+          } else {
+            this.allChoose = true;
+          }
+        }
+      },
+      deep: true
+    }
+  },
+  created() {
+    if (localStorage.login === "login") {
+      this.loginBtn = false;
+      this.text = "购物车空空如也，去逛逛吧~";
+
+      // 获取购物车商品
+      axios
+        .get("http://localhost:7001/getCart", {
+          params: {
+            userName: localStorage.userName
+          }
+        })
+        .then(result => {
+          var cart = result.data[0].cart;
+          this.goods = cart;
+          // console.log(cart);
+          if (cart.length !== 0) {
+            this.emptyCart = false;
+            this.cart = true;
+          } else {
+            this.emptyCart = true;
+            this.cart = false;
+          }
+        });
     }
   },
   methods: {
@@ -95,21 +161,118 @@ export default {
       this.$router.go(-1);
     },
     toLogin() {
-      this.$router.push({ 'path': '/login' });
+      this.$router.push({ path: "/login" });
     },
-    toMinus() {
-      if (this.count != 1) {
-        this.count -= 1;
+    // 减少商品数量
+    toMinus(good) {
+      if (good.count != 1) {
+        good.count -= 1;
+        if (good.checkStatus === false) {
+          good.checkStatus = true;
+        }
+        axios
+          .post("http://localhost:7001/updateCart", {
+            count: good.count,
+            checkStatus: good.checkStatus,
+            userName: localStorage.userName,
+            _id: good._id
+          })
+          .then(res => {
+            // console.log(res);
+          });
       }
     },
-    toAdd() {
-      this.count += 1;
+    // 增加商品数量
+    toAdd(good) {
+      good.count += 1;
+      if (good.checkStatus === false) {
+        good.checkStatus = true;
+      }
+      axios
+        .post("http://localhost:7001/updateCart", {
+          count: good.count,
+          checkStatus: good.checkStatus,
+          userName: localStorage.userName,
+          _id: good._id
+        })
+        .then(res => {
+          // console.log(res);
+        });
+    },
+    // 输入商品数量
+    change(good) {
+      if (good.count !== 0 && good.count !== "") {
+        if (good.checkStatus === false) {
+          good.checkStatus = true;
+        }
+        good.count = parseInt(good.count);
+        axios
+          .post("http://localhost:7001/updateCart", {
+            count: good.count,
+            checkStatus: good.checkStatus,
+            userName: localStorage.userName,
+            _id: good._id
+          })
+          .then(res => {
+            // console.log(res);
+          });
+      } else {
+        this.$notify.error({
+          title: "错误",
+          message: "请输入有效的内容！"
+        });
+      }
+    },
+    choose() {
+      this.allChoose = !this.allChoose;
+      if (this.allChoose === true) {
+        for (var i = 0; i < this.goods.length; i++) {
+          this.goods[i].checkStatus = true;
+        }
+      } else {
+        for (var i = 0; i < this.goods.length; i++) {
+          this.goods[i].checkStatus = false;
+        }
+      }
+    },
+    // 修改商品是否被选中
+    checkHandle(good) {
+      // console.log(good);
+      good.checkStatus = !good.checkStatus;
+      axios
+        .post("http://localhost:7001/updateCart", {
+          checkStatus: good.checkStatus,
+          userName: localStorage.userName,
+          _id: good._id
+        })
+        .then(res => {
+          // console.log(res);
+        });
+    },
+    deleteGood(good) {
+      MessageBox.confirm("确定删除该商品?").then(action => {
+        axios
+          .post("http://localhost:7001/deleteGood", {
+            userName: localStorage.userName,
+            _id: good._id
+          })
+          .then(res => {
+            var cart = res.data[0].cart;
+            this.goods = cart;
+            if (cart.length !== 0) {
+              this.emptyCart = false;
+              this.cart = true;
+            } else {
+              this.emptyCart = true;
+              this.cart = false;
+            }
+          });
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import './scss/cart.scss';
-
+@import "./scss/cart.scss";
 </style>
