@@ -14,6 +14,7 @@ vue写的仿京东商城
 4.分类界面展示</br>
 5.个人信息界面展示</br>
 6.商品详情界面展示</br></br>
+7.购物车界面展示</br></br>
 
 部分界面展示</br></br>
 
@@ -34,3 +35,9 @@ vue写的仿京东商城
 
 商品详情</br>
 ![xiangqing](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/6.png)</br></br>
+
+购物车</br>
+![gouwuche](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/7.png)
+![gouwuche](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/8.png)
+![gouwuche](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/9.png)</br></br>
+
