@@ -1,4 +1,5 @@
 <template>
+<!-- 个人信息页面 -->
   <div>
      <!-- 返回顶部的定位 -->
     <a id="top"></a>
@@ -22,7 +23,7 @@
           <span class="tongpaiText">铜牌会员</span>
         </div>
       </div>
-      <div class="shezhi">
+      <div class="shezhi" @click="toManagement">
         <img src="../../static/img/shezhi.png" alt="">
         <span class="shezhiText">账号管理</span>
       </div>
@@ -203,6 +204,9 @@ export default {
     toCart() {
       this.$router.push({ 'path': '/cart' });
     },
+    toManagement() {
+      this.$router.push({ 'path': '/accountManagement' });
+    }
   }
 }
 </script>

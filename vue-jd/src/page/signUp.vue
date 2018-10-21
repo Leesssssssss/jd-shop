@@ -1,4 +1,5 @@
 <template>
+<!-- 注册页面 -->
   <div>
     <!-- 顶部 -->
     <div class="header">

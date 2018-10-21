@@ -9,7 +9,10 @@ import Login from '@/page/login'
 import SignUp from '@/page/signUp'
 import My from '@/page/my'
 import GoodDetail from '@/page/goodDetail'
-
+import WriteAddress from '@/page/writeAddress'
+import AccountManagement from '@/page/accountManagement'
+import ChangePassword from '@/page/changePassword'
+import ChangeTelNum from '@/page/changeTelNum'
 
 
 
@@ -57,6 +60,26 @@ export default new Router({
       path: '/goodDetail',
       name: 'GoodDetail',
       component: GoodDetail
+    },
+    {
+      path: '/writeAddress',
+      name: 'WriteAddress',
+      component: WriteAddress
+    },
+    {
+      path: '/accountManagement',
+      name: 'AccountManagement',
+      component: AccountManagement
+    },
+    {
+      path: '/changePassword',
+      name: 'ChangePassword',
+      component: ChangePassword
+    },
+    {
+      path: '/changeTelNum',
+      name: 'ChangeTelNum',
+      component: ChangeTelNum
     }
   ]
 })

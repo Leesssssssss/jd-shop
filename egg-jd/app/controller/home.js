@@ -83,8 +83,8 @@ class HomeController extends Controller {
     ctx.body = 'ok';
   }
 
-  // 获取购物车商品
-  async getCart() {
+  // 获取用户信息
+  async getInfo() {
     const ctx = this.ctx;
     var userName = ctx.request.query.userName;
 
@@ -118,6 +118,30 @@ class HomeController extends Controller {
     const User = ctx.model.User;
     await User.update({ userName: userName }, { $pull: { cart: { _id: _id } } });
     
+    var getUserName = await User.find({ userName: userName });
+    ctx.body = getUserName;
+  }
+
+  // 修改密码
+  async changePassword() {
+    const ctx = this.ctx;
+    const userName = ctx.request.body.userName;
+    const password = ctx.request.body.password;
+    
+    const User = ctx.model.User;
+    await User.update({ userName: userName }, { $set: { 'password': password } });
+    var getUserName = await User.find({ userName: userName });
+    ctx.body = getUserName;
+  }
+
+  // 修改手机号码
+  async changeTelNum() {
+    const ctx = this.ctx;
+    const userName = ctx.request.body.userName;
+    const telNum = ctx.request.body.telNum;
+    
+    const User = ctx.model.User;
+    await User.update({ userName: userName }, { $set: { 'telNum': telNum } });
     var getUserName = await User.find({ userName: userName });
     ctx.body = getUserName;
   }

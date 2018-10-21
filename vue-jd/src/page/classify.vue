@@ -1,4 +1,5 @@
 <template>
+<!-- 商品分类页面 -->
   <div>
     <!-- 顶部搜索框 -->
     <div class="search">

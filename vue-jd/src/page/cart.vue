@@ -1,4 +1,5 @@
 <template>
+<!-- 购物车页面 -->
   <div>
     <!-- 顶部 -->
     <div class="header">
@@ -98,6 +99,7 @@ export default {
       let totalPrice = price.toFixed(2);
       return totalPrice;
     },
+    // 计算商品件数
     num() {
       var num = 0;
       for (var i = 0; i < this.goods.length; i++) {
@@ -115,6 +117,7 @@ export default {
       return num;
     }
   },
+  // 监听商品是否全选
   watch: {
     goods: {
       handler: function(val, oldval) {
@@ -137,7 +140,7 @@ export default {
 
       // 获取购物车商品
       axios
-        .get("http://localhost:7001/getCart", {
+        .get("http://localhost:7001/getInfo", {
           params: {
             userName: localStorage.userName
           }
@@ -217,12 +220,34 @@ export default {
             // console.log(res);
           });
       } else {
-        this.$notify.error({
-          title: "错误",
-          message: "请输入有效的内容！"
-        });
+        MessageBox.confirm("确定删除该商品?")
+          .then(action => {
+            console.log(action);
+            axios
+              .post("http://localhost:7001/deleteGood", {
+                userName: localStorage.userName,
+                _id: good._id
+              })
+              .then(res => {
+                var cart = res.data[0].cart;
+                this.goods = cart;
+                if (cart.length !== 0) {
+                  this.emptyCart = false;
+                  this.cart = true;
+                } else {
+                  this.emptyCart = true;
+                  this.cart = false;
+                }
+              });
+          })
+          .catch(err => {
+            if (err == "cancel") {
+              console.log("cancel");
+            }
+          });
       }
     },
+    // 全选
     choose() {
       this.allChoose = !this.allChoose;
       if (this.allChoose === true) {
@@ -241,6 +266,7 @@ export default {
       good.checkStatus = !good.checkStatus;
       axios
         .post("http://localhost:7001/updateCart", {
+          count: good.count,
           checkStatus: good.checkStatus,
           userName: localStorage.userName,
           _id: good._id
@@ -249,25 +275,32 @@ export default {
           // console.log(res);
         });
     },
+    // 删除商品
     deleteGood(good) {
-      MessageBox.confirm("确定删除该商品?").then(action => {
-        axios
-          .post("http://localhost:7001/deleteGood", {
-            userName: localStorage.userName,
-            _id: good._id
-          })
-          .then(res => {
-            var cart = res.data[0].cart;
-            this.goods = cart;
-            if (cart.length !== 0) {
-              this.emptyCart = false;
-              this.cart = true;
-            } else {
-              this.emptyCart = true;
-              this.cart = false;
-            }
-          });
-      });
+      MessageBox.confirm("确定删除该商品?")
+        .then(action => {
+          axios
+            .post("http://localhost:7001/deleteGood", {
+              userName: localStorage.userName,
+              _id: good._id
+            })
+            .then(res => {
+              var cart = res.data[0].cart;
+              this.goods = cart;
+              if (cart.length !== 0) {
+                this.emptyCart = false;
+                this.cart = true;
+              } else {
+                this.emptyCart = true;
+                this.cart = false;
+              }
+            });
+        })
+        .catch(err => {
+          if (err == "cancel") {
+            console.log("cancel");
+          }
+        });
     }
   }
 };
