@@ -13,6 +13,8 @@ import WriteAddress from '@/page/writeAddress'
 import AccountManagement from '@/page/accountManagement'
 import ChangePassword from '@/page/changePassword'
 import ChangeTelNum from '@/page/changeTelNum'
+import Address from '@/page/address'
+
 
 
 
@@ -80,6 +82,11 @@ export default new Router({
       path: '/changeTelNum',
       name: 'ChangeTelNum',
       component: ChangeTelNum
+    },
+    {
+      path: '/address',
+      name: 'Address',
+      component: Address
     }
   ]
 })

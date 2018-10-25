@@ -34,7 +34,7 @@
       <div>支付密码管理</div>
       <img src="../../static/img/right.png" alt="">
     </div>
-    <div class="three">
+    <div class="three" @click="address">
       <div>收货地址管理</div>
       <img src="../../static/img/right.png" alt="">
     </div>
@@ -104,6 +104,10 @@ export default {
     // 修改手机号码
     changeTelNum() {
       this.$router.push({ 'path': '/changeTelNum' });
+    },
+    // 收货地址管理
+    address() {
+      this.$router.push({ 'path': '/address' });
     },
     // 退出登录
     unLogin() {

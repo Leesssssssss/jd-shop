@@ -146,6 +146,93 @@ class HomeController extends Controller {
     ctx.body = getUserName;
   }
 
+  // 新增收货地址
+  async addAddress() {
+    const ctx = this.ctx;
+    const userName = ctx.request.body.userName;
+    const name = ctx.request.body.name;
+    const telNum = ctx.request.body.telNum;
+    const city = ctx.request.body.city;
+    const addressDetail = ctx.request.body.addressDetail;
+    const isDefault = ctx.request.body.isDefault;
+
+    const User = ctx.model.User;
+    var addressInfo = {
+      name: name,
+      telNum: telNum,
+      city: city,
+      addressDetail: addressDetail,
+      isDefault: isDefault
+    }
+
+    if (isDefault === true) {
+      await User.update({ userName: userName, 'address.isDefault': true }, { $set: { 'address.$.isDefault': false }});
+    }
+    await User.update({ userName: userName }, { $push: { address: { $each:[addressInfo], $position: 0 }}});
+    var getUserName = await User.find({ userName: userName });
+    ctx.body = getUserName;
+  }
+
+  // 删除收货地址
+  async deleteAddress() {
+    const ctx = this.ctx;
+    const userName = ctx.request.body.userName;
+    const _id = ctx.request.body._id;
+
+    const User = ctx.model.User;
+
+    var getUserName = await User.find({ userName: userName, 'address._id': _id }, { address: { $elemMatch: { _id: _id } } });
+    var isDefault = getUserName[0].address[0].isDefault;
+    
+    if (isDefault === true) {
+      ctx.body = 'no';
+    } else {
+      await User.update({ userName: userName }, { $pull: { address: { _id: _id } } });
+      var result = await User.find({ userName: userName });
+      ctx.body = result;
+    }
+  }
+
+  // 获取收货地址
+  async getAddress() {
+    const ctx = this.ctx;
+    const userName = ctx.request.body.userName;
+    const _id = ctx.request.body._id;
+
+    const User = ctx.model.User;
+
+    var getUserName = await User.find({ userName: userName, 'address._id': _id }, { address: { $elemMatch: { _id: _id } } });
+    ctx.body = getUserName;
+  }
+
+  // 修改收货地址
+  async updateAddress() {
+    const ctx = this.ctx;
+    const userName = ctx.request.body.userName;
+    const _id = ctx.request.body._id;
+    const name = ctx.request.body.name;
+    const telNum = ctx.request.body.telNum;
+    const city = ctx.request.body.city;
+    const addressDetail = ctx.request.body.addressDetail;
+    const isDefault = ctx.request.body.isDefault;
+
+    const User = ctx.model.User;
+    
+    if (isDefault === true) {
+      await User.update({ userName: userName, 'address.isDefault': true }, { $set: { 'address.$.isDefault': false }});
+    }
+    
+    await User.update({ userName: userName, 'address._id': _id }, { $set: { 
+      'address.$.name': name,
+      'address.$.telNum': telNum,
+      'address.$.city': city,
+      'address.$.addressDetail': addressDetail,
+      'address.$.isDefault': isDefault }});
+
+    var getUserName = await User.find({ userName: userName });
+    ctx.body = getUserName;
+  }
+
 
 }
 

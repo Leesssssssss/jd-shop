@@ -13,6 +13,15 @@ module.exports = app => {
         pic: { type: String },
         checkStatus: { type: Boolean }
       }
+    ],
+    address: [
+      {
+        name: { type: String },
+        telNum: { type: String },
+        city: { type: String },
+        addressDetail: { type: String },
+        isDefault: { type: Boolean }
+      }
     ]
   });
 

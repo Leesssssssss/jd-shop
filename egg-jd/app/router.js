@@ -14,4 +14,10 @@ module.exports = app => {
   router.post('/deleteGood', controller.home.deleteGood);
   router.post('/changePassword', controller.home.changePassword);
   router.post('/changeTelNum', controller.home.changeTelNum);
+  router.post('/addAddress', controller.home.addAddress);
+  router.post('/deleteAddress', controller.home.deleteAddress);
+  router.post('/getAddress', controller.home.getAddress);
+  router.post('/updateAddress', controller.home.updateAddress);
+
+
 };
