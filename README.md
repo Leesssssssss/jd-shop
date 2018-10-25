@@ -13,8 +13,9 @@ vue写的仿京东商城
 3.用户注册</br>
 4.分类界面展示</br>
 5.个人信息界面展示</br>
-6.商品详情界面展示</br></br>
-7.购物车界面展示</br></br>
+6.商品详情界面展示</br>
+7.购物车界面展示</br>
+8.账号管理界面展示</br></br>
 
 部分界面展示</br></br>
 
@@ -41,3 +42,7 @@ vue写的仿京东商城
 ![gouwuche](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/8.png)
 ![gouwuche](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/9.png)</br></br>
 
+账号管理</br>
+![zhanghao](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/10.png)
+![zhanghao](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/11.png)
+![zhanghao](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/12.png)</br></br>
