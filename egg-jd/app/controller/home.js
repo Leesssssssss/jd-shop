@@ -73,13 +73,6 @@ class HomeController extends Controller {
       checkStatus: false
     }
     await User.update({ userName: userName }, { $push: { cart: { $each:[good], $position: 0 }}});
-    // var getUserName = await User.find({ userName: userName }, function (err, docs) {
-    //   var newUser = docs[0];
-      
-    //   newUser.cart = newUser.cart.unshift(good);
-    //   newUser.save();
-    //   console.log(newUser);
-    // });
     ctx.body = 'ok';
   }
 
