@@ -14,6 +14,7 @@ import AccountManagement from '@/page/accountManagement'
 import ChangePassword from '@/page/changePassword'
 import ChangeTelNum from '@/page/changeTelNum'
 import Address from '@/page/address'
+import Order from '@/page/order'
 
 
 
@@ -87,6 +88,11 @@ export default new Router({
       path: '/address',
       name: 'Address',
       component: Address
+    },
+    {
+      path: '/order',
+      name: 'Order',
+      component: Order
     }
   ]
 })

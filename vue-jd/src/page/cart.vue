@@ -58,7 +58,7 @@
           </div>
           <div class="priceBottom">总额￥{{price}}  立减￥0.00</div>
         </div>
-        <button :class="{ toBuyR: haveGood, toBuy: !haveGood }">去结算({{num}}件)</button>
+        <button :class="{ toBuyR: haveGood, toBuy: !haveGood }" @click="toOrder">去结算({{num}}件)</button>
       </div>
     </div>
 
@@ -301,6 +301,12 @@ export default {
             console.log("cancel");
           }
         });
+    },
+    // 去支付
+    toOrder() {
+      if (this.haveGood === true) {
+        this.$router.push({ 'path': '/order' });
+      }
     }
   }
 };

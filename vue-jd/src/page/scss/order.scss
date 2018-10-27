@@ -1,0 +1,50 @@
+.header {
+  width: 100%;
+  height: 6vh;
+  background: linear-gradient(to bottom, #ffffff , #efefef); /* 标准的语法 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0 15px;
+  }
+  .headerText {
+    color: black;
+    font-size: 1rem;
+  }
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f3f3f3;
+  .addressInfo {
+    margin: 15px 10px 10px 10px;
+    flex: 1 1 auto;
+    .addressInfoTitle {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .red {
+      font-size: 12px;
+      color: #e4393c;
+      border: 1px solid #f5b5b6;
+      padding: 0 3px;
+    }
+    .addressInfoText {
+      color: #666666;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+  img {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 10px;
+    flex: 0 0 auto;
+  }
+}
