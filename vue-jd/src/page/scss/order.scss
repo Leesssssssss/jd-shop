@@ -48,3 +48,144 @@
     flex: 0 0 auto;
   }
 }
+
+.cart {
+  margin-top: 20px;
+  .shopName {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    img {
+      width: 1.2rem;
+      height: 0.9rem;
+      margin-right: 5px;
+    }
+    .shopNameTitle {
+      font-weight: 700;
+    }
+  }
+
+  .goodList {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    img {
+      width: 80px;
+      height: 80px;
+      margin: 0 10px;
+      flex: 0 0 auto;
+    }
+    .goodInfo {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      .goodInfoTitle {
+        img {
+          width: 51px;
+          height: 14px;
+        }
+        .goodInfoText {
+          font-weight: 700;
+          font-size: 14px;
+        }
+      }
+      .goodInfoKouwei {
+        color: #999999;
+        width: 97%;
+        font-size: 11px;
+        margin-top: 5px;
+      }
+      .goodInfoPriceAndCount {
+        display: flex;
+        margin-top: 15px;
+        align-items: center;
+        justify-content: space-between;
+        .goodInfoPrice {
+          color: #e4393c;
+          font-size: 16px;
+        }
+        .goodCount {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .peiSong {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px 15px 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    .peiSongItem1 {
+      font-size: 16px;
+      color: #333333;
+    }
+    .peiSongItem2 {
+      font-size: 12px;
+      color: #333333;
+    }
+  }
+
+  .tuiHuan {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px 15px 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    .tuiHuanItem1 {
+      font-size: 16px;
+      color: #333333;
+    }
+    .tuiHuanItem2 {
+      font-size: 12px;
+      color: #ea3b3d;
+    }
+  }
+}
+
+.card {
+  margin-top: 20px;
+  background-color: #fff;
+  .cardItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5px 15px 10px;
+    border-bottom: 1px solid #f2f2f2;
+    .cardItemTitle {
+      font-size: 16px;
+      color: #333333;
+    }
+    .cardItemText1 {
+      font-size: 12px;
+      color: #ea3b3d;
+      display: flex;
+      align-items: center;
+    }
+    .cardItemText2 {
+      font-size: 12px;
+      color: #666666;
+      display: flex;
+      align-items: center;
+    }
+    .cardItemText3 {
+      font-size: 12px;
+      color: #999999;
+      display: flex;
+      align-items: center;
+    }
+    img {
+      width: 1rem;
+      height: 1rem;
+      margin-left: 10px;
+      flex: 0 0 auto;
+    }
+  }
+}
