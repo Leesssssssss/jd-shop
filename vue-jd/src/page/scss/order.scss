@@ -49,6 +49,23 @@
   }
 }
 
+.noAddress {
+  background-color: #fff;
+  height: 10vh;
+  .noAddressBtn {
+    width: 30%;
+    height: 4vh;
+    margin: 3vh 35%;
+    text-align: center;
+    background-color: #fff;
+    color: #e4393c;
+    border: 1px dashed #e4393c;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+  }
+}
+
 .cart {
   margin-top: 20px;
   .shopName {
@@ -187,5 +204,67 @@
       margin-left: 10px;
       flex: 0 0 auto;
     }
+  }
+}
+
+.price {
+  background-color: #fff;
+  margin-top: 20px;
+  .priceItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px 0px 10px;
+    .priceItemTitle {
+      font-size: 14px;
+      color: #333333;
+    }
+    .priceItemText {
+      font-size: 13px;
+      color: #ea3b3d;
+    }
+  }
+  .priceItem1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 10px 30px 10px;
+    .priceItemTitle {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .priceItemText {
+      font-size: 16px;
+      color: #ea3b3d;
+    }
+  }
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding-bottom: 100px;
+  .btn1 {
+    width: 96%;
+    margin: 0 2%;
+    height: 6vh;
+    background-color: #bbebe9;
+    color: #0f8783;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+  .btn2 {
+    width: 96%;
+    margin: 10px 2%;
+    height: 6vh;
+    background-color: #3884ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
   }
 }

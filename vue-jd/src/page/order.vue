@@ -9,7 +9,7 @@
     </div>
 
     <!-- 地址 -->
-    <div class="address" v-if="haveAddress">
+    <div class="address" v-if="haveAddress" @click="chooseAddress">
       <div class="addressInfo">
         <div class="addressInfoTitle">{{address.name}}  {{telNum}}</div>
         <div>
@@ -18,6 +18,11 @@
         </div>
       </div>
       <img src="../../static/img/backRight.png" alt="">
+    </div>
+
+    <!-- 没有地址 -->
+    <div class="noAddress" v-if="!haveAddress">
+      <button class="noAddressBtn" @click="chooseAddress">+  添加地址</button>
     </div>
 
     <!-- 商品信息 -->
@@ -84,7 +89,24 @@
 
     <!-- 价格 -->
     <div class="price">
+      <div class="priceItem">
+        <span class="priceItemTitle">商品金额</span>
+        <span class="priceItemText">￥{{price}}</span>
+      </div>
+      <div class="priceItem">
+        <span class="priceItemTitle">运费</span>
+        <span class="priceItemText">+￥{{yunFei}}</span>
+      </div>
+      <div class="priceItem1">
+        <span class="priceItemTitle">总价：</span>
+        <span class="priceItemText">￥{{totalPrice}}</span>
+      </div>
+    </div>
 
+    <!-- 按钮 -->
+    <div class="btn">
+      <button class="btn1">货到付款</button>
+      <button class="btn2">在线支付</button>
     </div>
 
 
@@ -92,7 +114,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   data() {
@@ -100,47 +122,72 @@ export default {
       haveAddress: true,
       address: {},
       goods: [],
-      telNum: ''
+      telNum: "",
+      yunFei: "8.00"
+    };
+  },
+  computed: {
+    price() {
+      var price = 0;
+      for (var i = 0; i < this.goods.length; i++) {
+        price += this.goods[i].count * parseFloat(this.goods[i].price);
+      }
+      let totalPrice = price.toFixed(2);
+      return totalPrice;
+    },
+    totalPrice() {
+      var total = (parseFloat(this.price) + parseFloat(this.yunFei)).toFixed(2);
+      return total;
     }
   },
   created() {
-    axios.get('http://localhost:7001/getInfo', {
-      params: {
-        userName: localStorage.userName
-      }
-    }).then(res => {
-      // 如果用户保存过收货地址
-      if (res.data[0].address.length !== 0) {
-        for (var i = 0; i < res.data[0].address.length; i++) {
-          // 如果用户存在默认地址
-          if (res.data[0].address[i].isDefault === true) {
-            this.address = res.data[0].address[i];
-            this.telNum = (this.address.telNum).slice(0,3) + '*****' + (this.address.telNum).slice(8);
+    axios
+      .get("http://localhost:7001/getInfo", {
+        params: {
+          userName: localStorage.userName
+        }
+      })
+      .then(res => {
+        // 如果用户保存过收货地址
+        if (res.data[0].address.length !== 0) {
+          for (var i = 0; i < res.data[0].address.length; i++) {
+            // 如果用户存在默认地址
+            if (res.data[0].address[i].isDefault === true) {
+              this.address = res.data[0].address[i];
+              this.telNum =
+                this.address.telNum.slice(0, 3) +
+                "*****" +
+                this.address.telNum.slice(8);
+                break;
+            } else {
+              this.haveAddress = false;
+            }
+          }
+          // 用户之前未保存收货地址
+        } else {
+          this.haveAddress = false;
+        }
+
+        // 获取用户购物车中选中的商品
+        var cart = res.data[0].cart;
+        for (var i = 0; i < cart.length; i++) {
+          if (cart[i].checkStatus === true) {
+            this.goods.push(cart[i]);
           }
         }
-        // 用户之前未保存收货地址
-      } else {
-
-      }
-
-      // 获取用户购物车中选中的商品
-      var cart = res.data[0].cart;
-      for (var i = 0; i< cart.length; i++) {
-        if (cart[i].checkStatus === true) {
-          this.goods.push(cart[i]);
-        }
-      }
-    });
+      });
   },
   methods: {
     back() {
       this.$router.go(-1);
+    },
+    chooseAddress() {
+      this.$router.push({ 'path': '/address', query: { order: 'order' } });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 @import "./scss/order.scss";
-
 </style>

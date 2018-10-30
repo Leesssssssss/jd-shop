@@ -10,7 +10,10 @@
 
     <!-- 地址 -->
     <div class="address" v-for="item in address">
-      <div class="addressInfo">
+      <div class="chooseBox" @click="choose(item)">
+        <div v-if="chooseBox" :class="{ checkBoxR: item.isChoose, checkBox: !item.isChoose }"></div>
+      </div>
+      <div class="addressInfo" @click="choose(item)">
         <div class="addressInfoTitle">{{item.name}}  {{(item.telNum).slice(0,3) + '*****' + (item.telNum).slice(8)}}</div>
         <div>
           <span class="red" v-if="item.isDefault">默认</span>
@@ -36,10 +39,16 @@ import { Toast } from "mint-ui";
 export default {
   data() {
     return {
-      address: []
+      address: [],
+      chooseBox: false
     };
   },
   created() {
+    if (this.$route.query.order === "order") {
+      this.chooseBox = true;
+    } else {
+      this.chooseBox = false;
+    }
     axios
       .get("http://localhost:7001/getInfo", {
         params: {
@@ -49,6 +58,15 @@ export default {
       .then(res => {
         console.log(res.data);
         this.address = res.data[0].address;
+        for (var i = 0; i < res.data[0].address.length; i++) {
+          // 如果用户存在默认地址
+          if (res.data[0].address[i].isDefault === true) {
+            res.data[0].address[i].isChoose = true;
+            break;
+          } else {
+            res.data[0].address[i].isChoose = false;
+          }
+        }
       });
   },
   methods: {
@@ -58,10 +76,15 @@ export default {
     addAddress() {
       this.$router.push({ path: "/writeAddress" });
     },
+    choose(item) {
+      // this.isChoose = !this.isChoose;
+      console.log(item);
+      item.isChoose = !item.isChoose;
+    },
     // 修改地址
     updateAddress(item) {
       var id = item._id;
-      this.$router.push({ 'path': '/writeAddress', query: { id: id } });
+      this.$router.push({ path: "/writeAddress", query: { id: id } });
     },
     // 删除地址
     deleteAddress(item) {
