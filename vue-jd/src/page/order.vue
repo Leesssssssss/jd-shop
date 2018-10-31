@@ -127,6 +127,7 @@ export default {
     };
   },
   computed: {
+    // 计算商品总价
     price() {
       var price = 0;
       for (var i = 0; i < this.goods.length; i++) {
@@ -135,6 +136,7 @@ export default {
       let totalPrice = price.toFixed(2);
       return totalPrice;
     },
+    // 计算商品总价以及运费总和
     totalPrice() {
       var total = (parseFloat(this.price) + parseFloat(this.yunFei)).toFixed(2);
       return total;
@@ -153,6 +155,7 @@ export default {
           for (var i = 0; i < res.data[0].address.length; i++) {
             // 如果用户存在默认地址
             if (res.data[0].address[i].isDefault === true) {
+              this.haveAddress = true;
               this.address = res.data[0].address[i];
               this.telNum =
                 this.address.telNum.slice(0, 3) +

@@ -155,11 +155,12 @@ class HomeController extends Controller {
       telNum: telNum,
       city: city,
       addressDetail: addressDetail,
-      isDefault: isDefault
+      isDefault: isDefault,
+      isChoose: isDefault
     }
 
     if (isDefault === true) {
-      await User.update({ userName: userName, 'address.isDefault': true }, { $set: { 'address.$.isDefault': false }});
+      await User.update({ userName: userName, 'address.isDefault': true }, { $set: { 'address.$.isDefault': false, 'address.$.isChoose': false }});
     }
     await User.update({ userName: userName }, { $push: { address: { $each:[addressInfo], $position: 0 }}});
     var getUserName = await User.find({ userName: userName });
@@ -212,7 +213,7 @@ class HomeController extends Controller {
     const User = ctx.model.User;
     
     if (isDefault === true) {
-      await User.update({ userName: userName, 'address.isDefault': true }, { $set: { 'address.$.isDefault': false }});
+      await User.update({ userName: userName, 'address.isDefault': true }, { $set: { 'address.$.isDefault': false, 'address.$.isChoose': false }});
     }
     
     await User.update({ userName: userName, 'address._id': _id }, { $set: { 
@@ -220,7 +221,29 @@ class HomeController extends Controller {
       'address.$.telNum': telNum,
       'address.$.city': city,
       'address.$.addressDetail': addressDetail,
-      'address.$.isDefault': isDefault }});
+      'address.$.isDefault': isDefault,
+      'address.$.isChoose': isDefault }});
+
+    var getUserName = await User.find({ userName: userName });
+    ctx.body = getUserName;
+  }
+
+  // 修改地址是否被选中
+  async updateOrderAddress() {
+    const ctx = this.ctx;
+    var userName = ctx.request.query.userName;
+    var _id = ctx.request.query._id;
+    var isChoose = ctx.request.query.isChoose;
+
+
+    const User = ctx.model.User;
+    console.log(isChoose);
+
+    if (isChoose === true) {
+      await User.update({ userName: userName, 'address.isChoose': true }, { $set: { 'address.$.isChoose': false }});
+    }
+
+    await User.update({ userName: userName, 'address._id': _id }, { $set: { 'address.$.isChoose': isChoose } });
 
     var getUserName = await User.find({ userName: userName });
     ctx.body = getUserName;

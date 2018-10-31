@@ -20,7 +20,8 @@ module.exports = app => {
         telNum: { type: String },
         city: { type: String },
         addressDetail: { type: String },
-        isDefault: { type: Boolean }
+        isDefault: { type: Boolean },
+        isChoose: { type: Boolean }
       }
     ]
   });

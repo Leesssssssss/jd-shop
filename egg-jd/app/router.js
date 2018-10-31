@@ -18,6 +18,7 @@ module.exports = app => {
   router.post('/deleteAddress', controller.home.deleteAddress);
   router.post('/getAddress', controller.home.getAddress);
   router.post('/updateAddress', controller.home.updateAddress);
+  router.get('/updateOrderAddress', controller.home.updateOrderAddress);
 
 
 };

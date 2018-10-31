@@ -44,6 +44,7 @@ export default {
     };
   },
   created() {
+    // 如果是从下单界面进入该页要有选择框可选择地址
     if (this.$route.query.order === "order") {
       this.chooseBox = true;
     } else {
@@ -56,17 +57,7 @@ export default {
         }
       })
       .then(res => {
-        console.log(res.data);
         this.address = res.data[0].address;
-        for (var i = 0; i < res.data[0].address.length; i++) {
-          // 如果用户存在默认地址
-          if (res.data[0].address[i].isDefault === true) {
-            res.data[0].address[i].isChoose = true;
-            break;
-          } else {
-            res.data[0].address[i].isChoose = false;
-          }
-        }
       });
   },
   methods: {
@@ -76,10 +67,21 @@ export default {
     addAddress() {
       this.$router.push({ path: "/writeAddress" });
     },
+    // 下单时被选择的地址更改状态
     choose(item) {
-      // this.isChoose = !this.isChoose;
-      console.log(item);
       item.isChoose = !item.isChoose;
+      axios
+        .get("http://localhost:7001/updateOrderAddress", {
+          params: {
+            userName: localStorage.userName,
+            _id: item._id,
+            isChoose: item.isChoose
+          }
+        })
+        .then(result => {
+          console.log(result.data);
+          // location.reload();
+        });
     },
     // 修改地址
     updateAddress(item) {
