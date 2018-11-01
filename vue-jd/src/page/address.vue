@@ -69,18 +69,20 @@ export default {
     },
     // 下单时被选择的地址更改状态
     choose(item) {
-      item.isChoose = !item.isChoose;
+      for (var i = 0; i < this.address.length; i++) {
+        this.address[i].isChoose = false;
+      }
+      
+      item.isChoose = true;
       axios
         .get("http://localhost:7001/updateOrderAddress", {
           params: {
             userName: localStorage.userName,
-            _id: item._id,
-            isChoose: item.isChoose
+            _id: item._id
           }
         })
         .then(result => {
-          console.log(result.data);
-          // location.reload();
+          this.$router.push({ 'path': '/order' });
         });
     },
     // 修改地址

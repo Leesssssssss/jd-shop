@@ -228,22 +228,17 @@ class HomeController extends Controller {
     ctx.body = getUserName;
   }
 
-  // 修改地址是否被选中
+  // 下单时选择地址
   async updateOrderAddress() {
     const ctx = this.ctx;
     var userName = ctx.request.query.userName;
     var _id = ctx.request.query._id;
-    var isChoose = ctx.request.query.isChoose;
-
 
     const User = ctx.model.User;
-    console.log(isChoose);
 
-    if (isChoose === true) {
-      await User.update({ userName: userName, 'address.isChoose': true }, { $set: { 'address.$.isChoose': false }});
-    }
+    await User.update({ userName: userName, 'address.isChoose': true }, { $set: { 'address.$.isChoose': false }});
 
-    await User.update({ userName: userName, 'address._id': _id }, { $set: { 'address.$.isChoose': isChoose } });
+    await User.update({ userName: userName, 'address._id': _id }, { $set: { 'address.$.isChoose': true } });
 
     var getUserName = await User.find({ userName: userName });
     ctx.body = getUserName;

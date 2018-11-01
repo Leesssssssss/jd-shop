@@ -154,7 +154,7 @@ export default {
         if (res.data[0].address.length !== 0) {
           for (var i = 0; i < res.data[0].address.length; i++) {
             // 如果用户存在默认地址
-            if (res.data[0].address[i].isDefault === true) {
+            if (res.data[0].address[i].isChoose === true) {
               this.haveAddress = true;
               this.address = res.data[0].address[i];
               this.telNum =
