@@ -15,6 +15,7 @@ import ChangePassword from '@/page/changePassword'
 import ChangeTelNum from '@/page/changeTelNum'
 import Address from '@/page/address'
 import Order from '@/page/order'
+import Pay from '@/page/pay'
 
 
 
@@ -93,6 +94,11 @@ export default new Router({
       path: '/order',
       name: 'Order',
       component: Order
+    },
+    {
+      path: '/pay',
+      name: 'Pay',
+      component: Pay
     }
   ]
 })

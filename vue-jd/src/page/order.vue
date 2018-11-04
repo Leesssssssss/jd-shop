@@ -106,7 +106,7 @@
     <!-- 按钮 -->
     <div class="btn">
       <button class="btn1">货到付款</button>
-      <button class="btn2">在线支付</button>
+      <button class="btn2" @click="toPay">在线支付</button>
     </div>
 
 
@@ -186,6 +186,9 @@ export default {
     },
     chooseAddress() {
       this.$router.push({ 'path': '/address', query: { order: 'order' } });
+    },
+    toPay() {
+      this.$router.push({ 'path': '/pay' });
     }
   }
 };
