@@ -28,7 +28,6 @@
             </div>
           </div>
           <div class="rightBox">
-            <div></div>
             <div :class="{ checkBoxR: isChoose, checkBox: !isChoose }"></div>
           </div>
         </div>
@@ -47,7 +46,6 @@
             </div>
           </div>
           <div class="rightBox">
-            <div></div>
             <div class="checkBox"></div>
           </div>
         </div>
@@ -61,12 +59,14 @@
             </div>
           </div>
           <div class="rightBox">
-            <div></div>
             <div class="checkBox"></div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 底部按钮 -->
+    <button class="btn">银行卡支付{{price}}元</button>
 
   </div>
 </template>

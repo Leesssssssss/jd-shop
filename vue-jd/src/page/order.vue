@@ -188,7 +188,9 @@ export default {
       this.$router.push({ 'path': '/address', query: { order: 'order' } });
     },
     toPay() {
-      this.$router.push({ 'path': '/pay' });
+      // this.$router.push({ 'path': '/pay' });
+      console.log(this.address);
+      console.log(this.goods);
     }
   }
 };
