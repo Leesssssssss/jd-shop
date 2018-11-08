@@ -23,6 +23,14 @@ module.exports = app => {
         isDefault: { type: Boolean },
         isChoose: { type: Boolean }
       }
+    ],
+    order: [
+      {
+        address: { type: Object },
+        goods: { type: Array },
+        orderNum: { type: Number },
+        price: { type: String }
+      }
     ]
   });
 

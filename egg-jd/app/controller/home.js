@@ -244,6 +244,17 @@ class HomeController extends Controller {
     ctx.body = getUserName;
   }
 
+  // 新增订单
+  async addOrder() {
+    const ctx = this.ctx;
+    var userName = ctx.request.body.userName;
+    var order = ctx.request.body.order;
+
+    const User = ctx.model.User;
+    await User.update({ userName: userName }, { $push: { order: { $each:[order], $position: 0 }}});
+    ctx.body = 'ok';
+  }
+
 
 }
 
