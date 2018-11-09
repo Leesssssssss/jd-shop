@@ -13,6 +13,19 @@
       <input type="text" placeholder="商品名称/商品编号/订单号">
     </div>
 
+    <el-menu
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
+      @select="handleSelect"
+      background-color="#ffffff"
+      text-color="#333333"
+      active-text-color="#e93b3d">
+      <el-menu-item index="1">所有订单</el-menu-item>
+      <el-menu-item index="2">待付款</el-menu-item>
+      <el-menu-item index="3">待收货</el-menu-item>
+      <el-menu-item index="4">待完成</el-menu-item>
+    </el-menu>
 
     <!-- 订单列表 -->
     <div class="orderList" v-for="order in orders">
@@ -37,8 +50,23 @@
         </div>
         <button class="btn">再次购买</button>
       </div>
-      <div></div>
+
+      <div class="goods">
+        <div class="shopName">
+          <img src="../../static/img/jdd.png" alt="">
+          <span class="shopNameTitle">京东</span>
+        </div>
+        <div class="goodsList" v-for="good in order.goods">
+          <img :src="good.pic" alt="">
+          <div class="goodsInfo">
+            <div class="goodsName">{{good.goodName}}</div>
+            <div class="goodsCount">x{{good.count}}</div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="bottom">已经没有更多订单了~</div>
 
   </div>
 </template>
@@ -49,7 +77,8 @@ import axios from "axios";
 export default {
   data() {
     return {
-      orders: []
+      orders: [],
+       activeIndex: '1'
     };
   },
   created() {
@@ -65,7 +94,10 @@ export default {
   methods: {
     back() {
       this.$router.go(-1);
-    }
+    },
+    handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
   }
 };
 </script>

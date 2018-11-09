@@ -36,9 +36,13 @@
   }
 }
 
+.el-menu-demo {
+  margin-top: 10px;
+}
+
 .orderList {
   background-color: #ffffff;
-  margin-top: 10px;
+  // margin-top: 10px;
   .orderListItem {
     display: flex;
     justify-content: space-between;
@@ -83,6 +87,45 @@
       height: 30px;
     }
   }
+  .goods {
+    padding: 15px 10px;
+    .shopName {
+      display: flex;
+      align-items: center;
+      img {
+        width: 1rem;
+        margin-right: 5px;
+      }
+    }
+    .goodsList {
+      display: flex;
+      margin-top: 10px;
+      img {
+        width: 100px;
+        height: 100px;
+      }
+      .goodsInfo {
+        margin-left: 10px;
+        .goodsName {
+          color: #333333;
+          font-size: 13px;
+          line-height: 20px;
+        }
+        .goodsCount {
+          color: #999999;
+          font-size: 12px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+.bottom {
+  color: #999999;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px 0 100px 0;
 }
 
 
