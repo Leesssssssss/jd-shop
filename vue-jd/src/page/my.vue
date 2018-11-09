@@ -43,7 +43,7 @@
         <img src="../../static/img/tui.png" alt="">
         <span class="oneBoxItemText">退换/售后</span>
       </div>
-      <div class="oneBoxItem">
+      <div class="oneBoxItem" @click="toOrderList">
         <img src="../../static/img/ding.png" alt="">
         <span class="oneBoxItemText">全部订单</span>
       </div>
@@ -206,6 +206,9 @@ export default {
     },
     toManagement() {
       this.$router.push({ 'path': '/accountManagement' });
+    },
+    toOrderList() {
+      this.$router.push({ 'path': '/orderList' });
     }
   }
 }

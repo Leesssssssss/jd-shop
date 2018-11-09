@@ -18,6 +18,7 @@ import Order from '@/page/order'
 import Pay from '@/page/pay'
 import Success from '@/page/success'
 import OrderDetail from '@/page/orderDetail'
+import OrderList from '@/page/orderList'
 
 
 
@@ -109,6 +110,11 @@ export default new Router({
       path: '/orderDetail',
       name: 'OrderDetail',
       component: OrderDetail
+    },
+    {
+      path: '/orderList',
+      name: 'OrderList',
+      component: OrderList
     }
   ]
 })

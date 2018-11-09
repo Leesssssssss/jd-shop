@@ -1,0 +1,106 @@
+.header {
+  width: 100%;
+  height: 6vh;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f2f2f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0 15px;
+  }
+  .headerText {
+    color: black;
+    font-size: 1rem;
+  }
+}
+
+.search {
+  width: 100%;
+  height: 6vh;
+  text-align: center;
+  input {
+    width: 85%;
+    margin: 10px auto;
+    background: #ffffff;
+    height: 4vh;
+    border-radius: 20px 20px 20px 20px;
+    background-image: url(../../static/img/search.png);
+    background-repeat: no-repeat;
+    background-position: 15px 8px;
+    background-size: 15px 15px;
+    padding-left: 40px;
+    outline: none;
+  }
+}
+
+.orderList {
+  background-color: #ffffff;
+  margin-top: 10px;
+  .orderListItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #f2f2f2;
+    img {
+      width: 1.2rem;
+    }
+    .orderNum {
+      .orderNumTitle {
+        color: #999999;
+        font-size: 14px;
+      }
+      .orderNumText {
+        color: #151515;
+        font-size: 13px;
+      }
+    }
+    .orderInfo {
+      line-height: 20px;
+      .orderInfoTitle {
+        color: #999999;
+        font-size: 14px;
+      }
+      .orderInfoText {
+        color: #151515;
+        font-size: 13px;
+      }
+      .orderInfoTextR {
+        color: #e93b3d;
+        font-size: 13px;
+      }
+    }
+    .btn {
+      color: #ffffff;
+      background-color: #e93b3d;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      width: 80px;
+      height: 30px;
+    }
+  }
+}
+
+
+
+// 修改input标签placeholder文字属性
+::-webkit-input-placeholder { /* WebKit browsers */
+  font-size: 14px;
+  color: #cccccc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  font-size: 14px;
+  color: #cccccc;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  font-size: 14px;
+  color: #cccccc;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  font-size: 14px;
+  color: #cccccc;
+}
