@@ -37,10 +37,7 @@
         </div>
         <button class="btn">再次购买</button>
       </div>
-
-      <div>
-        
-      </div>
+      <div></div>
     </div>
 
   </div>
