@@ -42,7 +42,7 @@
 
 .orderList {
   background-color: #ffffff;
-  // margin-top: 10px;
+  margin-top: 10px;
   .orderListItem {
     display: flex;
     justify-content: space-between;
@@ -101,6 +101,7 @@
       display: flex;
       margin-top: 10px;
       img {
+        flex: 0 0 auto;
         width: 100px;
         height: 100px;
       }

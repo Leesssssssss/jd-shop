@@ -95,22 +95,6 @@ export default {
         .then(action => {
           console.log('ok');
           this.$router.push({ name: 'Success', params: { order: this.order } })
-          // axios
-          //   .post("http://localhost:7001/deleteGood", {
-          //     userName: localStorage.userName,
-          //     _id: good._id
-          //   })
-          //   .then(res => {
-          //     var cart = res.data[0].cart;
-          //     this.goods = cart;
-          //     if (cart.length !== 0) {
-          //       this.emptyCart = false;
-          //       this.cart = true;
-          //     } else {
-          //       this.emptyCart = true;
-          //       this.cart = false;
-          //     }
-          //   });
         })
         .catch(err => {
           if (err == "cancel") {

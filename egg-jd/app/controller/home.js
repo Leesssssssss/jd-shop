@@ -252,7 +252,24 @@ class HomeController extends Controller {
 
     const User = ctx.model.User;
     await User.update({ userName: userName }, { $push: { order: { $each:[order], $position: 0 }}});
+
+    for (var i = 0; i < order.goods.length; i++) {
+      await User.update({ userName: userName }, { $pull: { cart: { _id: order.goods[i]._id } } });
+    }
     ctx.body = 'ok';
+  }
+
+  // 删除订单
+  async deleteOrder() {
+    const ctx = this.ctx;
+    const userName = ctx.request.body.userName;
+    const _id = ctx.request.body._id;
+
+    const User = ctx.model.User;
+    await User.update({ userName: userName }, { $pull: { order: { _id: _id } } });
+    
+    var getUserName = await User.find({ userName: userName });
+    ctx.body = getUserName;
   }
 
 

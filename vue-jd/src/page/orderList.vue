@@ -34,7 +34,7 @@
           <span class="orderNumTitle">订单号：</span>
           <span class="orderNumText">{{order.orderNum}}</span>
         </div>
-        <img src="../../static/img/delete1.png" alt="">
+        <img src="../../static/img/delete1.png" alt="" @click="deleteOrder(order)">
       </div>
 
       <div class="orderListItem">
@@ -73,12 +73,13 @@
 
 <script>
 import axios from "axios";
+import { MessageBox } from "mint-ui";
 
 export default {
   data() {
     return {
       orders: [],
-       activeIndex: '1'
+      activeIndex: "1"
     };
   },
   created() {
@@ -88,7 +89,6 @@ export default {
       })
       .then(res => {
         this.orders = res.data[0].order;
-        console.log(this.orders);
       });
   },
   methods: {
@@ -96,8 +96,27 @@ export default {
       this.$router.go(-1);
     },
     handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      }
+      console.log(key, keyPath);
+    },
+    // 删除订单
+    deleteOrder(order) {
+      MessageBox.confirm("确定删除该订单?")
+        .then(action => {
+          axios
+            .post("http://localhost:7001/deleteOrder", {
+              userName: localStorage.userName,
+              _id: order._id
+            })
+            .then(res => {
+              this.orders = res.data[0].order;
+            });
+        })
+        .catch(err => {
+          if (err == "cancel") {
+            console.log("cancel");
+          }
+        });
+    }
   }
 };
 </script>
