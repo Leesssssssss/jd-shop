@@ -48,7 +48,7 @@
             <span class="orderInfoText">￥{{order.price}}</span>
           </div>
         </div>
-        <button class="btn">再次购买</button>
+        <button class="btn" @click="toBuy">再次购买</button>
       </div>
 
       <div class="goods">
@@ -116,6 +116,9 @@ export default {
             console.log("cancel");
           }
         });
+    },
+    toBuy() {
+      this.$router.push({ 'path': '/goodDetail' })
     }
   }
 };

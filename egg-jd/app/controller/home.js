@@ -109,13 +109,10 @@ class HomeController extends Controller {
     var checkStatus = ctx.request.body.checkStatus;
 
     const User = ctx.model.User;
-    console.log(typeof checkStatus);
 
     if (checkStatus === true) {
-      console.log('ok');
       await User.update({ userName: userName, 'cart.checkStatus': false }, { $set: { 'cart.$.checkStatus': true } });
     } else {
-      console.log('no');
       await User.update({ userName: userName, 'cart.checkStatus': true }, { $set: { 'cart.$.checkStatus': false } });
     }
 
