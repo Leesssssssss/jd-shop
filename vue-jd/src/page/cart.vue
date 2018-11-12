@@ -259,6 +259,14 @@ export default {
           this.goods[i].checkStatus = false;
         }
       }
+      axios
+        .post("http://localhost:7001/updateCartAllChoose", {
+          checkStatus: this.allChoose,
+          userName: localStorage.userName
+        })
+        .then(res => {
+          console.log(res.data);
+        });
     },
     // 修改商品是否被选中
     checkHandle(good) {
@@ -305,7 +313,7 @@ export default {
     // 去支付
     toOrder() {
       if (this.haveGood === true) {
-        this.$router.push({ 'path': '/order' });
+        this.$router.push({ path: "/order" });
       }
     }
   }

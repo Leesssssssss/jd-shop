@@ -72,7 +72,7 @@ class HomeController extends Controller {
       pic: pic,
       checkStatus: false
     }
-    await User.update({ userName: userName }, { $push: { cart: { $each:[good], $position: 0 }}});
+    await User.update({ userName: userName }, { $push: { cart: { $each: [good], $position: 0 } } });
     ctx.body = 'ok';
   }
 
@@ -102,6 +102,27 @@ class HomeController extends Controller {
     ctx.body = getUserName;
   }
 
+  // 购物车内全选或放弃全选
+  async updateCartAllChoose() {
+    const ctx = this.ctx;
+    var userName = ctx.request.body.userName;
+    var checkStatus = ctx.request.body.checkStatus;
+
+    const User = ctx.model.User;
+    console.log(typeof checkStatus);
+
+    if (checkStatus === true) {
+      console.log('ok');
+      await User.update({ userName: userName, 'cart.checkStatus': false }, { $set: { 'cart.$.checkStatus': true } });
+    } else {
+      console.log('no');
+      await User.update({ userName: userName, 'cart.checkStatus': true }, { $set: { 'cart.$.checkStatus': false } });
+    }
+
+    var getUserName = await User.find({ userName: userName });
+    ctx.body = getUserName;
+  }
+
   // 删除购物车商品
   async deleteGood() {
     const ctx = this.ctx;
@@ -110,7 +131,7 @@ class HomeController extends Controller {
 
     const User = ctx.model.User;
     await User.update({ userName: userName }, { $pull: { cart: { _id: _id } } });
-    
+
     var getUserName = await User.find({ userName: userName });
     ctx.body = getUserName;
   }
@@ -120,7 +141,7 @@ class HomeController extends Controller {
     const ctx = this.ctx;
     const userName = ctx.request.body.userName;
     const password = ctx.request.body.password;
-    
+
     const User = ctx.model.User;
     await User.update({ userName: userName }, { $set: { 'password': password } });
     var getUserName = await User.find({ userName: userName });
@@ -132,7 +153,7 @@ class HomeController extends Controller {
     const ctx = this.ctx;
     const userName = ctx.request.body.userName;
     const telNum = ctx.request.body.telNum;
-    
+
     const User = ctx.model.User;
     await User.update({ userName: userName }, { $set: { 'telNum': telNum } });
     var getUserName = await User.find({ userName: userName });
@@ -160,9 +181,9 @@ class HomeController extends Controller {
     }
 
     if (isDefault === true) {
-      await User.update({ userName: userName, 'address.isDefault': true }, { $set: { 'address.$.isDefault': false, 'address.$.isChoose': false }});
+      await User.update({ userName: userName, 'address.isDefault': true }, { $set: { 'address.$.isDefault': false, 'address.$.isChoose': false } });
     }
-    await User.update({ userName: userName }, { $push: { address: { $each:[addressInfo], $position: 0 }}});
+    await User.update({ userName: userName }, { $push: { address: { $each: [addressInfo], $position: 0 } } });
     var getUserName = await User.find({ userName: userName });
     ctx.body = getUserName;
   }
@@ -177,7 +198,7 @@ class HomeController extends Controller {
 
     var getUserName = await User.find({ userName: userName, 'address._id': _id }, { address: { $elemMatch: { _id: _id } } });
     var isDefault = getUserName[0].address[0].isDefault;
-    
+
     if (isDefault === true) {
       ctx.body = 'no';
     } else {
@@ -211,18 +232,21 @@ class HomeController extends Controller {
     const isDefault = ctx.request.body.isDefault;
 
     const User = ctx.model.User;
-    
+
     if (isDefault === true) {
-      await User.update({ userName: userName, 'address.isDefault': true }, { $set: { 'address.$.isDefault': false, 'address.$.isChoose': false }});
+      await User.update({ userName: userName, 'address.isDefault': true }, { $set: { 'address.$.isDefault': false, 'address.$.isChoose': false } });
     }
-    
-    await User.update({ userName: userName, 'address._id': _id }, { $set: { 
-      'address.$.name': name,
-      'address.$.telNum': telNum,
-      'address.$.city': city,
-      'address.$.addressDetail': addressDetail,
-      'address.$.isDefault': isDefault,
-      'address.$.isChoose': isDefault }});
+
+    await User.update({ userName: userName, 'address._id': _id }, {
+      $set: {
+        'address.$.name': name,
+        'address.$.telNum': telNum,
+        'address.$.city': city,
+        'address.$.addressDetail': addressDetail,
+        'address.$.isDefault': isDefault,
+        'address.$.isChoose': isDefault
+      }
+    });
 
     var getUserName = await User.find({ userName: userName });
     ctx.body = getUserName;
@@ -236,7 +260,7 @@ class HomeController extends Controller {
 
     const User = ctx.model.User;
 
-    await User.update({ userName: userName, 'address.isChoose': true }, { $set: { 'address.$.isChoose': false }});
+    await User.update({ userName: userName, 'address.isChoose': true }, { $set: { 'address.$.isChoose': false } });
 
     await User.update({ userName: userName, 'address._id': _id }, { $set: { 'address.$.isChoose': true } });
 
@@ -251,7 +275,7 @@ class HomeController extends Controller {
     var order = ctx.request.body.order;
 
     const User = ctx.model.User;
-    await User.update({ userName: userName }, { $push: { order: { $each:[order], $position: 0 }}});
+    await User.update({ userName: userName }, { $push: { order: { $each: [order], $position: 0 } } });
 
     for (var i = 0; i < order.goods.length; i++) {
       await User.update({ userName: userName }, { $pull: { cart: { _id: order.goods[i]._id } } });
@@ -267,7 +291,7 @@ class HomeController extends Controller {
 
     const User = ctx.model.User;
     await User.update({ userName: userName }, { $pull: { order: { _id: _id } } });
-    
+
     var getUserName = await User.find({ userName: userName });
     ctx.body = getUserName;
   }

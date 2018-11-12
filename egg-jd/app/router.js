@@ -11,6 +11,7 @@ module.exports = app => {
   router.post('/addCart', controller.home.addCart);
   router.get('/getInfo', controller.home.getInfo);
   router.post('/updateCart', controller.home.updateCart);
+  router.post('/updateCartAllChoose', controller.home.updateCartAllChoose);
   router.post('/deleteGood', controller.home.deleteGood);
   router.post('/changePassword', controller.home.changePassword);
   router.post('/changeTelNum', controller.home.changeTelNum);
