@@ -29,7 +29,7 @@
     </div>
 
     <!-- 提示信息 -->
-    <div class="attention">注意：京东平台及销售商不会以订单异常、系统升级为由要求您点击任何网址链接进行退款操作。{{time | formatDate}}</div>
+    <div class="attention">注意：京东平台及销售商不会以订单异常、系统升级为由要求您点击任何网址链接进行退款操作。</div>
 
   </div>
 </template>
@@ -40,29 +40,9 @@ import axios from "axios";
 export default {
   data() {
     return {
-      order: {},
-      time: 0
+      order: {}
     };
   },
-
-  filters: {
-    formatDate: function(value) {
-      let date = new Date(value);
-      let y = date.getFullYear();
-      let MM = date.getMonth() + 1;
-      MM = MM < 10 ? "0" + MM : MM;
-      let d = date.getDate();
-      d = d < 10 ? "0" + d : d;
-      let h = date.getHours();
-      h = h < 10 ? "0" + h : h;
-      let m = date.getMinutes();
-      m = m < 10 ? "0" + m : m;
-      let s = date.getSeconds();
-      s = s < 10 ? "0" + s : s;
-      return y + "-" + MM + "-" + d + " " + h + ":" + m + ":" + s;
-    }
-  },
-
   created() {
     this.order = this.$route.params.order;
     this.time = this.order.orderNum;

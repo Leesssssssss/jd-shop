@@ -28,7 +28,7 @@
     </el-menu>
 
     <!-- 订单列表 -->
-    <div class="orderList" v-for="order in orders">
+    <div class="orderList" v-for="order in orders" @click="toOrderDetail(order)">
       <div class="orderListItem">
         <div class="orderNum">
           <span class="orderNumTitle">订单号：</span>
@@ -118,7 +118,10 @@ export default {
         });
     },
     toBuy() {
-      this.$router.push({ 'path': '/goodDetail' })
+      this.$router.push({ 'path': '/goodDetail' });
+    },
+    toOrderDetail(order) {
+      this.$router.push({ 'name': 'OrderDetail', params: { order: order } });
     }
   }
 };

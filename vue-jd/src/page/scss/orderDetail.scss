@@ -16,3 +16,48 @@
     font-size: 1rem;
   }
 }
+
+.orderTitle {
+  background-color: #ffffff;
+  padding: 10px;
+  .orderTitleItem {
+    margin: 5px;
+    .title {
+      color: #999999;
+      font-size: 14px;
+    }
+    .text {
+      color: #151515;
+      font-size: 13px;
+    }
+  }
+  .btn {
+    outline: none;
+    border: none;
+    background-color: #e93b3d;
+    color: #ffffff;
+    border-radius: 4px;
+    width: 100%;
+    height: 6vh;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+}
+
+.orderInfo {
+  background-color: #ffffff;
+  padding: 10px;
+  margin-top: 15px;
+  .orderInfoItem {
+    margin: 5px;
+    .title {
+      color: #999999;
+      font-size: 14px;
+    }
+    .text {
+      color: #151515;
+      font-size: 13px;
+    }
+  }
+}
+

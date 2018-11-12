@@ -115,6 +115,7 @@
 
 <script>
 import axios from "axios";
+import { Toast } from "mint-ui";
 
 export default {
   data() {
@@ -161,7 +162,7 @@ export default {
                 this.address.telNum.slice(0, 3) +
                 "*****" +
                 this.address.telNum.slice(8);
-                break;
+              break;
             } else {
               this.haveAddress = false;
             }
@@ -185,15 +186,23 @@ export default {
       this.$router.go(-1);
     },
     chooseAddress() {
-      this.$router.push({ 'path': '/address', query: { order: 'order' } });
+      this.$router.push({ path: "/address", query: { order: "order" } });
     },
     toPay() {
-      var order = {};
-      order.address = this.address;
-      order.goods = this.goods;
-      order.price = this.totalPrice;
-      order.orderNum = Date.now();
-      this.$router.push({ 'name': 'Pay', params: { order: order } });
+      if (this.haveAddress !== true) {
+        Toast("收货地址不能为空！");
+      } else {
+        if (this.goods.length === 0) {
+          Toast("系统出错，请重新选择商品！");
+        } else {
+          var order = {};
+          order.address = this.address;
+          order.goods = this.goods;
+          order.price = this.totalPrice;
+          order.orderNum = Date.now();
+          this.$router.push({ name: "Pay", params: { order: order } });
+        }
+      }
     }
   }
 };
