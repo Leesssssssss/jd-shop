@@ -19,7 +19,9 @@ vue写的仿京东商城
 8.账号管理</br>
 9.收货地址管理</br>
 10.确认订单</br>
-11.订单支付</br></br>
+11.订单支付</br>
+12.订单列表</br>
+13.订单详情</br></br>
 
 部分界面展示</br></br>
 
@@ -64,3 +66,10 @@ vue写的仿京东商城
 ![zhifu](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/20.png)
 ![zhifu](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/21.png)</br></br>
 
+订单列表</br>
+![liebiao](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/22.png)
+![liebiao](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/23.png)</br></br>
+
+订单详情</br>
+![xiangqing](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/24.png)
+![xiangqing](https://github.com/Leesssssssss/jd-shop/raw/master/Screenshots/25.png)</br></br>
