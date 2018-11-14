@@ -18,7 +18,7 @@
       <div class="orderTitleItem">
         <span class="title">下单时间：</span><span class="text">{{order.orderNum | formatDate}}</span>
       </div>
-      <button class="btn">再次购买</button>
+      <button class="btn" @click="toBuy">再次购买</button>
     </div>
 
     <div class="orderInfo">
@@ -48,16 +48,57 @@
       </div>
     </div>
 
+    <!-- 商品 -->
+    <div class="goods">
+      <div class="shopName">
+        <div class="shopNameLeft">
+          <img src="../../static/img/jdd.png" alt="">
+          <span class="shopNameTitle">京东</span>
+        </div>
+        <div class="shopNameRight">共计{{num}}件商品</div>
+      </div>
+      <div class="goodsList" v-for="good in order.goods">
+        <img :src="good.pic" alt="">
+        <div class="goodsName">{{good.goodName}}</div>
+        <div class="goodsInfo">
+          <div class="goodsPrice">￥{{good.price}}</div>
+          <div class="goodsCount">x{{good.count}}</div>
+      </div>
+      </div>
+    </div>
+
+    <!-- 价格 -->
+    <div class="price">
+      <div class="priceItem">
+        <span class="priceItemTitle">商品总额</span>
+        <span class="priceItemText">￥{{price}}</span>
+      </div>
+      <div class="priceItem">
+        <span class="priceItemTitle">运费</span>
+        <span class="priceItemText">+￥{{yunFei}}</span>
+      </div>
+      <div class="priceItem1">
+        <span class="priceItemTitle">实付金额：</span>
+        <span class="priceItemText">￥{{order.price}}</span>
+      </div>
+    </div>
+
+    <div class="b">
+      <button class="btn" @click="deleteOrder">删除订单</button>
+    </div>
+
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import { MessageBox } from "mint-ui";
 
 export default {
   data() {
     return {
-      order: []
+      order: [],
+      yunFei: "8.00"
     };
   },
   filters: {
@@ -77,20 +118,54 @@ export default {
       return y + "-" + MM + "-" + d + " " + h + ":" + m + ":" + s;
     }
   },
+  computed: {
+    // 商品总价
+    price() {
+      var price = 0;
+      for (var i = 0; i < this.order.goods.length; i++) {
+        price +=
+          this.order.goods[i].count * parseFloat(this.order.goods[i].price);
+      }
+      let totalPrice = price.toFixed(2);
+      return totalPrice;
+    },
+    // 商品总数量
+    num() {
+      var num = 0;
+      for (var i = 0; i < this.order.goods.length; i++) {
+        num += this.order.goods[i].count;
+      }
+      return num;
+    }
+  },
   created() {
-    // axios
-    //   .get("http://localhost:7001/getInfo", {
-    //     params: { userName: localStorage.userName }
-    //   })
-    //   .then(res => {
-    //     this.order = res.data[0].order;
-    //   });
     this.order = this.$route.params.order;
     console.log(this.order);
   },
   methods: {
     back() {
       this.$router.go(-1);
+    },
+    toBuy() {
+      this.$router.push({ 'path': '/goodDetail' });
+    },
+    deleteOrder() {
+      MessageBox.confirm("确定删除该订单?")
+        .then(action => {
+          axios
+            .post("http://localhost:7001/deleteOrder", {
+              userName: localStorage.userName,
+              _id: this.order._id
+            })
+            .then(res => {
+              this.$router.push({ 'path': '/orderList' });
+            });
+        })
+        .catch(err => {
+          if (err == "cancel") {
+            console.log("cancel");
+          }
+        });
     }
   }
 };

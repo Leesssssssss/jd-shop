@@ -34,8 +34,10 @@
           <span class="orderNumTitle">订单号：</span>
           <span class="orderNumText">{{order.orderNum}}</span>
         </div>
-        <img src="../../static/img/delete1.png" alt="" @click="deleteOrder(order)">
+        <img src="../../static/img/delete1.png" alt="" @click.stop="deleteOrder(order)">
       </div>
+
+      <!-- @click.stop阻止事件继续传播 -->
 
       <div class="orderListItem">
         <div class="orderInfo">
@@ -48,7 +50,7 @@
             <span class="orderInfoText">￥{{order.price}}</span>
           </div>
         </div>
-        <button class="btn" @click="toBuy">再次购买</button>
+        <button class="btn" @click.stop="toBuy">再次购买</button>
       </div>
 
       <div class="goods">
