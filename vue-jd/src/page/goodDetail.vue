@@ -161,7 +161,7 @@ export default {
           kouwei = "辛拉面";
         }
         axios
-          .post("http://localhost:7001/addCart", {
+          .post("http://jd.hhp.im/addCart", {
             goodName: this.goodName,
             kouwei: kouwei,
             count: this.count,

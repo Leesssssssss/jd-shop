@@ -111,7 +111,7 @@ export default {
         if (this.items.authCode != '323g') {
           alert('验证码错误！');
         } else {
-          axios.post('http://localhost:7001/login',
+          axios.post('http://jd.hhp.im/login',
           { account: this.items.account, password: this.items.password }).then(result => {
             var res = result.data;
             console.log(res);

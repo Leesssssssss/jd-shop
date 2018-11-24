@@ -59,7 +59,7 @@ export default {
             if (this.password !== this.passwordAgain) {
               alert("两次输入的密码不一致！");
             } else {
-              axios.post('http://localhost:7001/signUp', 
+              axios.post('http://jd.hhp.im/signUp', 
               { userName: this.userName, telNum: this.telNum, password: this.password }).then(result => {
                 var result = result.data;
                 if (result === '注册成功！') {

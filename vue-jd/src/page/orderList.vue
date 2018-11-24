@@ -86,7 +86,7 @@ export default {
   },
   created() {
     axios
-      .get("http://localhost:7001/getInfo", {
+      .get("http://jd.hhp.im/getInfo", {
         params: { userName: localStorage.userName }
       })
       .then(res => {
@@ -105,7 +105,7 @@ export default {
       MessageBox.confirm("确定删除该订单?")
         .then(action => {
           axios
-            .post("http://localhost:7001/deleteOrder", {
+            .post("http://jd.hhp.im/deleteOrder", {
               userName: localStorage.userName,
               _id: order._id
             })
