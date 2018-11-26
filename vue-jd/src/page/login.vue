@@ -3,7 +3,7 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../../static/img/back.png" alt="">
+      <img @click="back" src="../assets/back.png" alt="">
       <span class="headerText">京东登录</span>
       <div class="block"></div>
     </div>
@@ -28,12 +28,12 @@
         <div class="loginAccountItem">
           <div class="loginAccountItemText">密码</div>
           <input v-model="items.password" ref="password" type="password" placeholder="请输入密码">
-          <img class="loginAccountItemEye" src="../../static/img/eye.png" alt="">
+          <img class="loginAccountItemEye" src="../assets/eye.png" alt="">
         </div>
         <div class="loginAccountItem">
           <div class="loginAccountItemText">验证码</div>
           <input v-model="items.authCode" ref="authCode" type="text" placeholder="请输入图片验证码">
-          <img class="loginAccountItemYan" src="../../static/img/yanzhengma.jpg" alt="">
+          <img class="loginAccountItemYan" src="../assets/yanzhengma.jpg" alt="">
         </div>
       </div>
 
@@ -44,11 +44,11 @@
 
       <div class="little">
         <div class="littleItem">
-          <img src="../../static/img/password.png" alt="">
+          <img src="../assets/password.png" alt="">
           <span>忘记密码</span>
         </div>
         <div class="littleItem">
-          <img src="../../static/img/telephone.png" alt="">
+          <img src="../assets/telephone.png" alt="">
           <span @click="toSignUp">手机快速注册</span>
         </div>
       </div>
@@ -56,8 +56,8 @@
       <div class="otherLogin">
         <h4 class="otherLoginTitle">其他登录方式</h4>
         <div class="otherLoginPic">
-          <img src="../../static/img/QQ.png" alt="">
-          <img src="../../static/img/wechat.png" alt="">
+          <img src="../assets/QQ.png" alt="">
+          <img src="../assets/wechat.png" alt="">
         </div>
         <div class="otherLoginText">登录即代表同意您已同意京东隐私政策</div>
       </div>

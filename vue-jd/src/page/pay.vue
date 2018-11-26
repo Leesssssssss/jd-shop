@@ -3,9 +3,9 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../../static/img/back.png" alt="">
+      <img @click="back" src="../assets/back.png" alt="">
       <span class="headerText">京东收银台</span>
-      <img src="../../static/img/lookMore.png" alt="">
+      <img src="../assets/lookMore.png" alt="">
     </div>
 
     <div class="needPay">
@@ -16,12 +16,12 @@
     <!-- 银行卡等 -->
     <div class="pay">
       <div class="jdPay">
-        <img src="../../static/img/jdPay.png" alt="">
+        <img src="../assets/jdPay.png" alt="">
       </div>
       <div class="bankCard">
         <div class="ICBC">
           <div class="leftBox">
-            <img src="../../static/img/ICBC.png" alt="">
+            <img src="../assets/ICBC.png" alt="">
             <div class="leftItem">
               <div class="name">工商银行</div>
               <div class="text">储蓄卡（0001）</div>
@@ -34,12 +34,12 @@
 
         <div class="other">
           <div class="text">其他银行卡</div>
-          <img src="../../static/img/backRight.png" alt="">
+          <img src="../assets/backRight.png" alt="">
         </div>
 
         <div class="baiTiao">
           <div class="leftBox">
-            <img src="../../static/img/baitiao.png" alt="">
+            <img src="../assets/baitiao.png" alt="">
             <div class="leftItem">
               <div class="name">打白条</div>
               <div class="text">未开通白条</div>
@@ -52,7 +52,7 @@
 
         <div class="baiTiao">
           <div class="leftBox">
-            <img src="../../static/img/jinku.png" alt="">
+            <img src="../assets/jinku.png" alt="">
             <div class="leftItem">
               <div class="name">京东小金库</div>
               <div class="text">未开通小金库</div>

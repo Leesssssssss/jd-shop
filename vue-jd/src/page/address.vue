@@ -3,9 +3,9 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../../static/img/back.png" alt="">
+      <img @click="back" src="../assets/back.png" alt="">
       <span class="headerText">收货地址</span>
-      <img src="../../static/img/lookMore.png" alt="">
+      <img src="../assets/lookMore.png" alt="">
     </div>
 
     <!-- 地址 -->
@@ -20,8 +20,8 @@
           <span class="addressInfoText">{{item.city}}{{item.addressDetail}}</span>
         </div>
       </div>
-      <img src="../../static/img/write.png" @click="updateAddress(item)" alt="">
-      <img src="../../static/img/delete.png" @click="deleteAddress(item)" alt="">
+      <img src="../assets/write.png" @click="updateAddress(item)" alt="">
+      <img src="../assets/delete.png" @click="deleteAddress(item)" alt="">
     </div>
 
     <div class="box"></div>

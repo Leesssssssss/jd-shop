@@ -3,9 +3,9 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../../static/img/back.png" alt="">
+      <img @click="back" src="../assets/back.png" alt="">
       <span class="headerText">订单详情</span>
-      <img src="../../static/img/lookMore.png" alt="">
+      <img src="../assets/lookMore.png" alt="">
     </div>
 
     <div class="orderTitle">
@@ -52,7 +52,7 @@
     <div class="goods">
       <div class="shopName">
         <div class="shopNameLeft">
-          <img src="../../static/img/jdd.png" alt="">
+          <img src="../assets/jdd.png" alt="">
           <span class="shopNameTitle">京东</span>
         </div>
         <div class="shopNameRight">共计{{num}}件商品</div>

@@ -13,7 +13,7 @@
     <div class="info">
       <div class="infoTitle">所在地区</div>
       <div class="infoInput" @click="toAddress">{{city}}</div>
-      <img src="../../static/img/right.png" alt="">
+      <img src="../assets/right.png" alt="">
     </div>
     <div class="info">
       <div class="infoTitle">详细地址</div>

@@ -3,9 +3,9 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../../static/img/back.png" alt="">
+      <img @click="back" src="../assets/back.png" alt="">
       <span class="headerText">订单列表</span>
-      <img src="../../static/img/lookMore.png" alt="">
+      <img src="../assets/lookMore.png" alt="">
     </div>
 
     <!-- 搜索框 -->
@@ -34,7 +34,7 @@
           <span class="orderNumTitle">订单号：</span>
           <span class="orderNumText">{{order.orderNum}}</span>
         </div>
-        <img src="../../static/img/delete1.png" alt="" @click.stop="deleteOrder(order)">
+        <img src="../assets/delete1.png" alt="" @click.stop="deleteOrder(order)">
       </div>
 
       <!-- @click.stop阻止事件继续传播 -->
@@ -55,7 +55,7 @@
 
       <div class="goods">
         <div class="shopName">
-          <img src="../../static/img/jdd.png" alt="">
+          <img src="../assets/jdd.png" alt="">
           <span class="shopNameTitle">京东</span>
         </div>
         <div class="goodsList" v-for="good in order.goods">

@@ -3,12 +3,12 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../../static/img/back.png" alt="">
+      <img @click="back" src="../assets/back.png" alt="">
       <span class="headerText">商品</span>
       <span class="headerText">评价</span>
       <span class="headerText">详情</span>
       <span class="headerText">推荐</span>
-      <img src="../../static/img/lookMore.png" alt="">
+      <img src="../assets/lookMore.png" alt="">
     </div>
 
     <div class="box1"></div>
@@ -26,7 +26,7 @@
     <!-- 产品名称、价钱 -->
     <div class="goodInfo">
       <div class="goodInfoName">
-        <img src="../../static/img/ziying.png" alt="">
+        <img src="../assets/ziying.png" alt="">
         <span class="goodInfoNameText">{{goodName}}</span>
       </div>
       <div class="goodInfoR">超市周年庆，礼献中秋，享各国美食，尽在京东进口粮油调味！京东自营，质量把控</div>
@@ -36,7 +36,7 @@
       <div class="baitiao">
         <span class="baitiaoTitle">白条</span>
         <span class="baitiaoText">【激活白条】新用户下单立减10元</span>
-        <img src="../../static/img/lookMore.png" alt="">
+        <img src="../assets/lookMore.png" alt="">
       </div>
     </div>
 
@@ -63,15 +63,15 @@
     <!-- 底部 -->
     <div class="tab">
       <div class="tabItem">
-        <img src="../../static/img/chat.png" alt="">
+        <img src="../assets/chat.png" alt="">
         <span class="tabItemText">联系客服</span>
       </div>
       <div class="tabItem">
-        <img src="../../static/img/shop.png" alt="">
+        <img src="../assets/shop.png" alt="">
         <span class="tabItemText">进店</span>
       </div>
       <div class="tabItem" @click="toCart">
-        <img src="../../static/img/cartSmall.png" alt="">
+        <img src="../assets/cartSmall.png" alt="">
         <span class="tabItemText">购物车</span>
       </div>
       <button class="addCart" @click="addCart">加入购物车</button>
@@ -90,8 +90,8 @@ export default {
     return {
       // 轮播图
       banners: [
-        "../../static/img/huojimian.jpg",
-        "../../static/img/huojimian1.jpg"
+        require("../assets/huojimian.jpg"),
+        require("../assets/huojimian1.jpg")
       ],
       // 轮播图配置
       swiperOption: {
@@ -115,8 +115,8 @@ export default {
       red1: true,
       red2: false,
       count: 1,
-      minus: "../../static/img/unMinus.png",
-      add: "../../static/img/add.png",
+      minus: require("../assets/unMinus.png"),
+      add: require("../assets/add.png"),
       success: false
     };
   },
@@ -124,10 +124,10 @@ export default {
     count: function(val, oldval) {
       console.log(val);
       if (val == 1) {
-        this.minus = "../../static/img/unMinus.png";
+        this.minus = "../assets/unMinus.png";
       }
       if (val != 1) {
-        this.minus = "../../static/img/minus.png";
+        this.minus = "../assets/minus.png";
       }
     }
   },

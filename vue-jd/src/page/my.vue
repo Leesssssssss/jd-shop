@@ -5,26 +5,26 @@
     <a id="top"></a>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../../static/img/back.png" alt="">
+      <img @click="back" src="../assets/back.png" alt="">
       <span class="headerText">我的京东</span>
-      <img src="../../static/img/lookMore.png" alt="">
+      <img src="../assets/lookMore.png" alt="">
     </div>
 
     <!-- 个人资料卡 -->
     <div class="card">
       <div class="touxiang">
-        <img src="../../static/img/touxiang.png" alt="">
+        <img src="../assets/touxiang.png" alt="">
       </div>
       <div class="userInfo">
-        <img class="compile" src="../../static/img/compile.png" alt="">
+        <img class="compile" src="../assets/compile.png" alt="">
         <span class="userInfoText">用户名：{{userName}}</span>
         <div class="tongpai">
-          <img class="tongpaiPic" src="../../static/img/tongpai.png" alt="">
+          <img class="tongpaiPic" src="../assets/tongpai.png" alt="">
           <span class="tongpaiText">铜牌会员</span>
         </div>
       </div>
       <div class="shezhi" @click="toManagement">
-        <img src="../../static/img/shezhi.png" alt="">
+        <img src="../assets/shezhi.png" alt="">
         <span class="shezhiText">账号管理</span>
       </div>
     </div>
@@ -32,19 +32,19 @@
     <!-- 条框1 -->
     <div class="oneBox">
       <div class="oneBoxItem">
-        <img src="../../static/img/pay.png" alt="">
+        <img src="../assets/pay.png" alt="">
         <span class="oneBoxItemText">待付款</span>
       </div>
       <div class="oneBoxItem">
-        <img src="../../static/img/car.png" alt="">
+        <img src="../assets/car.png" alt="">
         <span class="oneBoxItemText">待收货</span>
       </div>
       <div class="oneBoxItem">
-        <img src="../../static/img/tui.png" alt="">
+        <img src="../assets/tui.png" alt="">
         <span class="oneBoxItemText">退换/售后</span>
       </div>
       <div class="oneBoxItem" @click="toOrderList">
-        <img src="../../static/img/ding.png" alt="">
+        <img src="../assets/ding.png" alt="">
         <span class="oneBoxItemText">全部订单</span>
       </div>
     </div>
@@ -80,7 +80,7 @@
         <span class="twoBoxItemText">礼品卡</span>
       </div>
       <div class="twoBoxItem">
-        <img src="../../static/img/zichan.png" alt="">
+        <img src="../assets/zichan.png" alt="">
         <span class="twoBoxItemText">全部资产</span>
       </div>
     </div>
@@ -104,31 +104,31 @@
     <!-- 条框4 -->
     <div class="fourBox">
       <div class="fourBoxItem">
-        <img src="../../static/img/w1.png" alt="">
+        <img src="../assets/w1.png" alt="">
         <span class="fourBoxItemText">用户福利</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../static/img/w2.png" alt="">
+        <img src="../assets/w2.png" alt="">
         <span class="fourBoxItemText">京东火车票</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../static/img/w3.png" alt="">
+        <img src="../assets/w3.png" alt="">
         <span class="fourBoxItemText">我的预约</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../static/img/w4.png" alt="">
+        <img src="../assets/w4.png" alt="">
         <span class="fourBoxItemText">应用推荐</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../static/img/w5.png" alt="">
+        <img src="../assets/w5.png" alt="">
         <span class="fourBoxItemText">京东通信营业厅</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../static/img/w6.png" alt="">
+        <img src="../assets/w6.png" alt="">
         <span class="fourBoxItemText">京东机票</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../static/img/w7.png" alt="">
+        <img src="../assets/w7.png" alt="">
         <span class="fourBoxItemText">京东酒店</span>
       </div>
       <div class="fourBoxItem"></div>
@@ -137,7 +137,7 @@
     <!-- 条框5 -->
     <div class="fiveBox">
       <span class="fiveBoxText">客户服务</span>
-      <img src="../../static/img/backRight.png" alt="">
+      <img src="../assets/backRight.png" alt="">
     </div>
 
     <!-- 底部 -->
@@ -149,9 +149,9 @@
         <li class="bottomOneItemLast" @click="goAnchor">返回顶部</li>
       </ul>
       <ul class="bottomTwo">
-        <li class="bottomTwoItem"><img src="../../static/img/kehuduan.png" alt=""></li>
-        <li class="bottomTwoItem"><img src="../../static/img/guojiban.png" alt=""></li>
-        <li class="bottomTwoItem"><img src="../../static/img/diannaoban.png" alt=""></li>
+        <li class="bottomTwoItem"><img src="../assets/kehuduan.png" alt=""></li>
+        <li class="bottomTwoItem"><img src="../assets/guojiban.png" alt=""></li>
+        <li class="bottomTwoItem"><img src="../assets/diannaoban.png" alt=""></li>
       </ul>
       <div class="bottomText">Copyright &copy; 2018 京东版权所有</div>
     </div>
@@ -160,11 +160,11 @@
 
     <!-- 底部导航栏 -->
     <div class="tab">
-      <div class="tabItem"><img @click="toIndex" src="../../static/img/shouye.png" alt=""></div>
-      <div class="tabItem"><img @click="toClassify" src="../../static/img/fenlei.png" alt=""></div>
-      <div class="tabItem"><img @click="toDiscover" src="../../static/img/faxian.png" alt=""></div>
-      <div class="tabItem"><img @click="toCart" src="../../static/img/gouwuche.png" alt=""></div>
-      <div class="tabItem"><img src="../../static/img/wodeR.png" alt=""></div>
+      <div class="tabItem"><img @click="toIndex" src="../assets/shouye.png" alt=""></div>
+      <div class="tabItem"><img @click="toClassify" src="../assets/fenlei.png" alt=""></div>
+      <div class="tabItem"><img @click="toDiscover" src="../assets/faxian.png" alt=""></div>
+      <div class="tabItem"><img @click="toCart" src="../assets/gouwuche.png" alt=""></div>
+      <div class="tabItem"><img src="../assets/wodeR.png" alt=""></div>
     </div>
 
   </div>
