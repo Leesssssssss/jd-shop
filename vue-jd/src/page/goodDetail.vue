@@ -83,7 +83,7 @@
 
 <script>
 import axios from "axios";
-import { MessageBox  } from "mint-ui";
+import { MessageBox } from "mint-ui";
 
 export default {
   data() {
@@ -151,28 +151,32 @@ export default {
       this.$router.push({ path: "/cart" });
     },
     addCart() {
-      MessageBox('提示', '添加购物车成功！');
-      this.success = true;
-      if (this.success === true) {
-        var kouwei;
-        if (this.red1 === true) {
-          kouwei = "火鸡面";
-        } else {
-          kouwei = "辛拉面";
+      if (localStorage.login !== "login") {
+        MessageBox("提示", "请先登录！");
+      } else {
+        MessageBox("提示", "添加购物车成功！");
+        this.success = true;
+        if (this.success === true) {
+          var kouwei;
+          if (this.red1 === true) {
+            kouwei = "火鸡面";
+          } else {
+            kouwei = "辛拉面";
+          }
+          axios
+            .post("http://jd.hhp.im/addCart", {
+              goodName: this.goodName,
+              kouwei: kouwei,
+              count: this.count,
+              price: this.price,
+              pic: this.pic,
+              userName: localStorage.userName
+            })
+            .then(result => {
+              var result = result.data;
+              console.log(result);
+            });
         }
-        axios
-          .post("http://jd.hhp.im/addCart", {
-            goodName: this.goodName,
-            kouwei: kouwei,
-            count: this.count,
-            price: this.price,
-            pic: this.pic,
-            userName: localStorage.userName
-          })
-          .then(result => {
-            var result = result.data;
-            console.log(result);
-          });
       }
     }
   }
