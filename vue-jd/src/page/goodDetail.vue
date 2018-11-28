@@ -163,6 +163,7 @@ export default {
           } else {
             kouwei = "辛拉面";
           }
+          
           axios
             .post("http://jd.hhp.im/addCart", {
               goodName: this.goodName,
