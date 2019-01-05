@@ -145,7 +145,7 @@ export default {
   },
   created() {
     axios
-      .get("http://jd.hhp.im/getInfo", {
+      .get("http://localhost:7001/getInfo", {
         params: {
           userName: localStorage.userName
         }
@@ -209,5 +209,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./scss/order.scss";
+@import "./order.scss";
 </style>

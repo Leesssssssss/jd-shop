@@ -1,24 +1,28 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
-import Index from '@/page/index'
-import Classify from '@/page/classify'
-import Discover from '@/page/discover'
-import Cart from '@/page/cart'
-import Login from '@/page/login'
-import SignUp from '@/page/signUp'
-import My from '@/page/my'
-import GoodDetail from '@/page/goodDetail'
-import WriteAddress from '@/page/writeAddress'
-import AccountManagement from '@/page/accountManagement'
-import ChangePassword from '@/page/changePassword'
-import ChangeTelNum from '@/page/changeTelNum'
-import Address from '@/page/address'
-import Order from '@/page/order'
-import Pay from '@/page/pay'
-import Success from '@/page/success'
-import OrderDetail from '@/page/orderDetail'
-import OrderList from '@/page/orderList'
+
+import Index from '@/components/index/index'
+
+import Classify from '@/components/classify/classify'
+import GoodDetail from '@/components/classify/goodDetail/goodDetail'
+
+import Discover from '@/components/discover/discover'
+
+import Cart from '@/components/cart/cart'
+import WriteAddress from '@/components/cart/writeAddress/writeAddress'
+import Address from '@/components/cart/address/address'
+import Order from '@/components/cart/order/order'
+import Pay from '@/components/cart/pay/pay'
+import Success from '@/components/cart/success/success'
+
+import My from '@/components/my/my'
+import Login from '@/components/my/login/login'
+import SignUp from '@/components/my/signUp/signUp'
+import AccountManagement from '@/components/my/accountManagement/accountManagement'
+import ChangePassword from '@/components/my/changePassword/changePassword'
+import ChangeTelNum from '@/components/my/changeTelNum/changeTelNum'
+import OrderDetail from '@/components/my/orderDetail/orderDetail'
+import OrderList from '@/components/my/orderList/orderList'
 
 
 

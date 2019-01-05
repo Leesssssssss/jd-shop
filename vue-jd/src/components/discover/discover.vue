@@ -12,6 +12,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./scss/discover.scss";
+@import "./discover.scss";
 
 </style>

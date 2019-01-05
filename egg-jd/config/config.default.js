@@ -18,7 +18,8 @@ module.exports = appInfo => {
     csrf: {
       enable: false,
     },
-    domainWhiteList: ['http://jser.hhp.im']
+    // domainWhiteList: ['http://jser.hhp.im']
+    domainWhiteList: ['localhost:8080']
   };
 
   return config;

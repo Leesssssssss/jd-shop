@@ -48,7 +48,7 @@ export default {
     this.time = this.order.orderNum;
     console.log(this.order);
     axios
-      .post("http://jd.hhp.im/addOrder", {
+      .post("http://localhost:7001/addOrder", {
         userName: localStorage.userName,
         order: this.order
       })
@@ -68,5 +68,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./scss/success.scss";
+@import "./success.scss";
 </style>

@@ -165,7 +165,7 @@ export default {
           }
           
           axios
-            .post("http://jd.hhp.im/addCart", {
+            .post("http://localhost:7001/addCart", {
               goodName: this.goodName,
               kouwei: kouwei,
               count: this.count,
@@ -185,5 +185,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./scss/goodDetail.scss";
+@import "./goodDetail.scss";
 </style>

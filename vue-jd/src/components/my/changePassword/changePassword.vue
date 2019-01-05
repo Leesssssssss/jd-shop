@@ -36,7 +36,7 @@ export default {
         Toast("新密码不能为空！");
       } else {
         axios
-          .post("http://jd.hhp.im/changePassword", {
+          .post("http://localhost:7001/changePassword", {
             userName: localStorage.userName,
             password: this.password
           })
@@ -51,5 +51,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./scss/changePassword.scss";
+@import "./changePassword.scss";
 </style>

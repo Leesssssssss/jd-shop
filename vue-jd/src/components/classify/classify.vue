@@ -164,6 +164,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './scss/classify.scss';
+@import './classify.scss';
 
 </style>

@@ -13,6 +13,8 @@ import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
 import '../static/css/reset.css'
+import '../src/assets/iconfont/iconfont.css'
+
 
 import router from './router'
 Vue.config.productionTip = false

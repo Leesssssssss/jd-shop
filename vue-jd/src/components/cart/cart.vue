@@ -140,7 +140,7 @@ export default {
 
       // 获取购物车商品
       axios
-        .get("http://jd.hhp.im/getInfo", {
+        .get("http://localhost:7001/getInfo", {
           params: {
             userName: localStorage.userName
           }
@@ -174,7 +174,7 @@ export default {
           good.checkStatus = true;
         }
         axios
-          .post("http://jd.hhp.im/updateCart", {
+          .post("http://localhost:7001/updateCart", {
             count: good.count,
             checkStatus: good.checkStatus,
             userName: localStorage.userName,
@@ -192,7 +192,7 @@ export default {
         good.checkStatus = true;
       }
       axios
-        .post("http://jd.hhp.im/updateCart", {
+        .post("http://localhost:7001/updateCart", {
           count: good.count,
           checkStatus: good.checkStatus,
           userName: localStorage.userName,
@@ -210,7 +210,7 @@ export default {
         }
         good.count = parseInt(good.count);
         axios
-          .post("http://jd.hhp.im/updateCart", {
+          .post("http://localhost:7001/updateCart", {
             count: good.count,
             checkStatus: good.checkStatus,
             userName: localStorage.userName,
@@ -224,7 +224,7 @@ export default {
           .then(action => {
             console.log(action);
             axios
-              .post("http://jd.hhp.im/deleteGood", {
+              .post("http://localhost:7001/deleteGood", {
                 userName: localStorage.userName,
                 _id: good._id
               })
@@ -260,7 +260,7 @@ export default {
         }
       }
       axios
-        .post("http://jd.hhp.im/updateCartAllChoose", {
+        .post("http://localhost:7001/updateCartAllChoose", {
           checkStatus: this.allChoose,
           userName: localStorage.userName
         })
@@ -273,7 +273,7 @@ export default {
       // console.log(good);
       good.checkStatus = !good.checkStatus;
       axios
-        .post("http://jd.hhp.im/updateCart", {
+        .post("http://localhost:7001/updateCart", {
           count: good.count,
           checkStatus: good.checkStatus,
           userName: localStorage.userName,
@@ -288,7 +288,7 @@ export default {
       MessageBox.confirm("确定删除该商品?")
         .then(action => {
           axios
-            .post("http://jd.hhp.im/deleteGood", {
+            .post("http://localhost:7001/deleteGood", {
               userName: localStorage.userName,
               _id: good._id
             })
@@ -321,5 +321,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./scss/cart.scss";
+@import "./cart.scss";
 </style>

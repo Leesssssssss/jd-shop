@@ -107,5 +107,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./scss/pay.scss";
+@import "./pay.scss";
 </style>

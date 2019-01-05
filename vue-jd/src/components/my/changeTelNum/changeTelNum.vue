@@ -39,7 +39,7 @@ export default {
           Toast("请输入正确的手机号码！");
         } else {
           axios
-            .post("http://jd.hhp.im/changeTelNum", {
+            .post("http://localhost:7001/changeTelNum", {
               userName: localStorage.userName,
               telNum: this.telNum
             })
@@ -55,5 +55,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./scss/changePassword.scss";
+@import "./changePassword.scss";
 </style>

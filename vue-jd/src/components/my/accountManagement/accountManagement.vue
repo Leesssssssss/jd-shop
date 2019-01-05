@@ -84,7 +84,7 @@ export default {
     // 获取用户名以及手机号码
     this.name = localStorage.userName;
     axios
-      .get("http://jd.hhp.im/getInfo", {
+      .get("http://localhost:7001/getInfo", {
         params: { userName: localStorage.userName }
       })
       .then(res => {
@@ -120,5 +120,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./scss/accountManagement.scss";
+@import "./accountManagement.scss";
 </style>

@@ -51,7 +51,7 @@ export default {
       this.chooseBox = false;
     }
     axios
-      .get("http://jd.hhp.im/getInfo", {
+      .get("http://localhost:7001/getInfo", {
         params: {
           userName: localStorage.userName
         }
@@ -75,7 +75,7 @@ export default {
       
       item.isChoose = true;
       axios
-        .get("http://jd.hhp.im/updateOrderAddress", {
+        .get("http://localhost:7001/updateOrderAddress", {
           params: {
             userName: localStorage.userName,
             _id: item._id
@@ -95,7 +95,7 @@ export default {
       MessageBox.confirm("确定删除该地址?")
         .then(action => {
           axios
-            .post("http://jd.hhp.im/deleteAddress", {
+            .post("http://localhost:7001/deleteAddress", {
               userName: localStorage.userName,
               _id: item._id
             })
@@ -119,5 +119,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./scss/address.scss";
+@import "./address.scss";
 </style>
