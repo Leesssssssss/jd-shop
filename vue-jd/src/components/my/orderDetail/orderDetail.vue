@@ -3,9 +3,9 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../assets/back.png" alt="">
+      <i class="iconfont icon-back" style="color:#909295;font-size:25px;margin:0 10px;" @click="back"></i>
       <span class="headerText">订单详情</span>
-      <img src="../assets/lookMore.png" alt="">
+      <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
     </div>
 
     <div class="orderTitle">
@@ -52,7 +52,7 @@
     <div class="goods">
       <div class="shopName">
         <div class="shopNameLeft">
-          <img src="../assets/jdd.png" alt="">
+          <img src="../../../assets/jdd.png" alt="">
           <span class="shopNameTitle">京东</span>
         </div>
         <div class="shopNameRight">共计{{num}}件商品</div>

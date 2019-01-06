@@ -4,14 +4,14 @@
     <!-- 顶部搜索框 -->
     <div class="search">
       <div class="searchItem">
-        <img @click="back" src="../assets/back.png" alt="">
+        <i class="iconfont icon-back" style="color:#909295;font-size:25px;margin:0 10px;" @click="back"></i>
       </div>
       <input type="text" placeholder="roseonly京东超级品牌日">
       <div class="searchItem">
-        <img src="../assets/lookMore.png" alt="">
+        <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
       </div>
     </div>
-
+    
     <el-container class="classify">
       <!-- 左侧导航栏 -->
       <el-aside width="24vw" class="leftNav" style="background-color: #f8f8f8">
@@ -78,45 +78,45 @@ export default {
     return {
       c:[],
       c1: [
-        {src: require('../assets/c11.jpg'), text: '手机'},
-        {src: require('../assets/c12.png'), text: '电磁炉'},
-        {src: require('../assets/c13.png'), text: 'U盘'},
-        {src: require('../assets/c14.png'), text: '篮球'},
-        {src: require('../assets/c15.jpg'), text: '男鞋'}
+        {src: require('../../assets/c11.jpg'), text: '手机'},
+        {src: require('../../assets/c12.png'), text: '电磁炉'},
+        {src: require('../../assets/c13.png'), text: 'U盘'},
+        {src: require('../../assets/c14.png'), text: '篮球'},
+        {src: require('../../assets/c15.jpg'), text: '男鞋'}
       ],
       c2: [
-        {src: require('../assets/c21.jpg'), text: '华为'},
-        {src: require('../assets/c22.jpg'), text: 'iPhone'},
-        {src: require('../assets/c23.jpg'), text: '荣耀'},
-        {src: require('../assets/c24.png'), text: 'vivo'}
+        {src: require('../../assets/c21.jpg'), text: '华为'},
+        {src: require('../../assets/c22.jpg'), text: 'iPhone'},
+        {src: require('../../assets/c23.jpg'), text: '荣耀'},
+        {src: require('../../assets/c24.png'), text: 'vivo'}
       ],
       c3: [
-        {src: require('../assets/c31.jpg'), text: '煮蛋器'},
-        {src: require('../assets/c32.jpg'), text: '面包机'}
+        {src: require('../../assets/c31.jpg'), text: '煮蛋器'},
+        {src: require('../../assets/c32.jpg'), text: '面包机'}
       ],
       c4: [
-        {src: require('../assets/c41.jpg'), text: '组装电脑'},
-        {src: require('../assets/c42.png'), text: '轻薄本'}
+        {src: require('../../assets/c41.jpg'), text: '组装电脑'},
+        {src: require('../../assets/c42.png'), text: '轻薄本'}
       ],
       c5: [
-        {src: require('../assets/c51.jpg'), text: '明星同款面膜'},
-        {src: require('../assets/c52.jpg'), text: '显白口红'}
+        {src: require('../../assets/c51.jpg'), text: '明星同款面膜'},
+        {src: require('../../assets/c52.jpg'), text: '显白口红'}
       ],
       c6: [
-        {src: require('../assets/c61.jpg'), text: '本色纸'},
-        {src: require('../assets/c62.jpg'), text: '个护馆'}
+        {src: require('../../assets/c61.jpg'), text: '本色纸'},
+        {src: require('../../assets/c62.jpg'), text: '个护馆'}
       ],
       c7: [
-        {src: require('../assets/c71.jpg'), text: '洗车水枪'},
-        {src: require('../assets/c72.jpg'), text: '车衣'}
+        {src: require('../../assets/c71.jpg'), text: '洗车水枪'},
+        {src: require('../../assets/c72.jpg'), text: '车衣'}
       ],
       c8: [
-        {src: require('../assets/c81.jpg'), text: '衣物清洁'},
-        {src: require('../assets/c82.jpg'), text: '口腔护理'}
+        {src: require('../../assets/c81.jpg'), text: '衣物清洁'},
+        {src: require('../../assets/c82.jpg'), text: '口腔护理'}
       ],
       c9: [
-        {src: require('../assets/c91.jpg'), text: '人文社科'},
-        {src: require('../assets/c92.jpg'), text: '文学'}
+        {src: require('../../assets/c91.jpg'), text: '人文社科'},
+        {src: require('../../assets/c92.jpg'), text: '文学'}
       ]
     }
   },

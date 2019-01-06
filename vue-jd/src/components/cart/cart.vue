@@ -3,14 +3,14 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../assets/back.png" alt="">
+      <i class="iconfont icon-back" style="color:#909295;font-size:25px;margin:0 10px;" @click="back"></i>
       <span class="headerText">购物车</span>
-      <img src="../assets/lookMore.png" alt="">
+      <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
     </div>
 
     <!-- 购物车为空 -->
     <div class="unLogin" v-show="emptyCart">
-      <img src="../assets/cart.png" alt="">
+      <img src="../../assets/cart.png" alt="">
       <div class="unLoginText">{{text}}</div>
       <button v-show="loginBtn" class="unLoginBtn" @click="toLogin">登录</button>
     </div>
@@ -19,7 +19,7 @@
     <div class="cart" v-show="cart">
       <div class="shopName">
         <div v-bind:class="{ checkBoxR: allChoose, checkBox: !allChoose }" @click="choose"></div>
-        <img src="../assets/jdd.png" alt="">
+        <img src="../../assets/jdd.png" alt="">
         <span class="shopNameTitle">京东自营</span>
       </div>
       <div class="goodList" v-for="(good,index) in goods">
@@ -77,9 +77,9 @@ export default {
       text: "登录后可同步购物车中商品",
       loginBtn: true,
       goods: [],
-      minus: require("../assets/unMinus.png"),
-      unMinus: require("../assets/minus.png"),
-      add: require("../assets/add.png"),
+      minus: require("../../assets/unMinus.png"),
+      unMinus: require("../../assets/minus.png"),
+      add: require("../../assets/add.png"),
       allChoose: false,
       checked: false,
       haveGood: false

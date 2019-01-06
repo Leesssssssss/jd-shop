@@ -3,9 +3,9 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../assets/back.png" alt="">
+      <i class="iconfont icon-back" style="color:#909295;font-size:25px;margin:0 10px;" @click="back"></i>
       <span class="headerText">确认订单</span>
-      <img src="../assets/lookMore.png" alt="">
+      <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
     </div>
 
     <!-- 地址 -->
@@ -17,7 +17,7 @@
           <span class="addressInfoText">{{address.city}}{{address.addressDetail}}</span>
         </div>
       </div>
-      <img src="../assets/backRight.png" alt="">
+      <img src="../../../assets/backRight.png" alt="">
     </div>
 
     <!-- 没有地址 -->
@@ -28,7 +28,7 @@
     <!-- 商品信息 -->
     <div class="cart">
       <div class="shopName">
-        <img src="../assets/jdd.png" alt="">
+        <img src="../../../assets/jdd.png" alt="">
         <span class="shopNameTitle">京东自营</span>
       </div>
       <div class="goodList" v-for="(good,index) in goods">
@@ -61,28 +61,28 @@
         <span class="cardItemTitle">促销优惠</span>
         <div class="cardItemText1">
           <span>查看更多优惠</span>
-          <img src="../assets/backRight.png" alt="">
+          <img src="../../../assets/backRight.png" alt="">
         </div>
       </div>
       <div class="cardItem">
         <span class="cardItemTitle">发票信息</span>
         <div class="cardItemText2">
           <span>电子发票  个人  商品明细</span>
-          <img src="../assets/backRight.png" alt="">
+          <img src="../../../assets/backRight.png" alt="">
         </div>
       </div>
       <div class="cardItem">
         <span class="cardItemTitle">礼品卡</span>
         <div class="cardItemText3">
           <span>无可用</span>
-          <img src="../assets/backRight.png" alt="">
+          <img src="../../../assets/backRight.png" alt="">
         </div>
       </div>
       <div class="cardItem">
         <span class="cardItemTitle">京豆</span>
         <div class="cardItemText3">
           <span>未满1000个，暂不可使用</span>
-          <img src="../assets/backRight.png" alt="">
+          <img src="../../../assets/backRight.png" alt="">
         </div>
       </div>
     </div>

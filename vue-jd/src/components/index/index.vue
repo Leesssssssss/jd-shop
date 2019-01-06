@@ -5,9 +5,13 @@
     <a id="top"></a>
     <!-- 头部搜索框 -->
     <div class="header">
-      <div class="headerPic"><img src="../assets/category.png" alt=""></div>
+      <div class="headerPic">
+        <i class="iconfont icon-sort" style="color:#fff;font-size:30px;"></i>
+      </div>
       <input class="input" type="text" placeholder="电脑主机">
-      <div class="headerPic"><img src="../assets/xiaoxi.png" alt=""></div>
+      <div class="headerPic">
+        <i class="iconfont icon-mark" style="color:#fff;font-size:30px;"></i>
+      </div>
     </div>
     
     <!-- 轮播图 -->
@@ -30,9 +34,9 @@
     
     <!-- 每日抽奖 -->
     <div class="choujiang">
-      <div class="choujiangItem1"><img src="../assets/b1.jpg" alt=""></div>
-      <div class="choujiangItem2"><img src="../assets/b2.jpg" alt=""></div>
-      <div class="choujiangItem2"><img src="../assets/b3.jpg" alt=""></div>
+      <div class="choujiangItem1"><img src="../../assets/b1.jpg" alt=""></div>
+      <div class="choujiangItem2"><img src="../../assets/b2.jpg" alt=""></div>
+      <div class="choujiangItem2"><img src="../../assets/b3.jpg" alt=""></div>
     </div>
 
     <!-- 秒杀 -->
@@ -42,7 +46,7 @@
           <div class="miaoHeaderLeftTitle">京东秒杀</div>
           <div class="miaoHeaderLeftTime">16点场 00:53:15</div>
         </div>
-        <div class="miaoHeaderRight">更多秒杀<img src="../assets/more.png" alt=""></div>
+        <div class="miaoHeaderRight">更多秒杀<img src="../../assets/more.png" alt=""></div>
       </div>
       <div class="miaoSha">
         <div class="miaoShaItem" v-for="item in miaoSha">
@@ -55,22 +59,22 @@
 
     <!-- 东家小院 -->
     <div class="dongjia">
-      <div class="dongjiaTitle"><img src="../assets/dongjia.jpg" alt=""></div>
+      <div class="dongjiaTitle"><img src="../../assets/dongjia.jpg" alt=""></div>
       <div class="dongjiaTop">
         <div class="dongjiaTopItem">
           <div class="dongjiaTopItemTitle">— 我的大学 —</div>
           <div class="dongjiaTopItemText">全新生活从这里开启</div>
           <div class="dongjiaTopItemPic">
-            <img src="../assets/daxue1.jpg" alt="">
-            <img src="../assets/daxue2.jpg" alt="">
+            <img src="../../assets/daxue1.jpg" alt="">
+            <img src="../../assets/daxue2.jpg" alt="">
           </div>
         </div>
         <div class="dongjiaTopItem">
           <div class="dongjiaTopItemTitle">— 神童学院 —</div>
           <div class="dongjiaTopItemText">小朋友成长教育专区</div>
           <div class="dongjiaTopItemPic">
-            <img src="../assets/shentong1.jpg" alt="">
-            <img src="../assets/shentong2.jpg" alt="">
+            <img src="../../assets/shentong1.jpg" alt="">
+            <img src="../../assets/shentong2.jpg" alt="">
           </div>
         </div>
       </div>
@@ -78,22 +82,22 @@
         <div class="dongjiaBottomItem">
           <div class="dongjiaBottomItemTitle">二手寻宝</div>
           <div class="dongjiaBottomItemText">跳蚤市场</div>
-          <img src="../assets/ershou.jpg" alt="">
+          <img src="../../assets/ershou.jpg" alt="">
         </div>
         <div class="dongjiaBottomItem">
           <div class="dongjiaBottomItemTitle">科技生活</div>
           <div class="dongjiaBottomItemText">智能家居</div>
-          <img src="../assets/keji.jpg" alt="">
+          <img src="../../assets/keji.jpg" alt="">
         </div>
         <div class="dongjiaBottomItem">
           <div class="dongjiaBottomItemTitle">头号玩家</div>
           <div class="dongjiaBottomItemText">骨灰级装备</div>
-          <img src="../assets/touhao.jpg" alt="">
+          <img src="../../assets/touhao.jpg" alt="">
         </div>
         <div class="dongjiaBottomItem">
           <div class="dongjiaBottomItemTitle">吸睛大法</div>
           <div class="dongjiaBottomItemText">秒变男神</div>
-          <img src="../assets/xijing.jpg" alt="">
+          <img src="../../assets/xijing.jpg" alt="">
         </div>
       </div>
     </div>
@@ -107,9 +111,9 @@
         <li class="bottomOneItemLast" @click="goAnchor">返回顶部</li>
       </ul>
       <ul class="bottomTwo">
-        <li class="bottomTwoItem"><img src="../assets/kehuduan.png" alt=""></li>
-        <li class="bottomTwoItem"><img src="../assets/guojiban.png" alt=""></li>
-        <li class="bottomTwoItem"><img src="../assets/diannaoban.png" alt=""></li>
+        <li class="bottomTwoItem"><img src="../../assets/kehuduan.png" alt=""></li>
+        <li class="bottomTwoItem"><img src="../../assets/guojiban.png" alt=""></li>
+        <li class="bottomTwoItem"><img src="../../assets/diannaoban.png" alt=""></li>
       </ul>
       <div class="bottomText">Copyright &copy; 2018 京东版权所有</div>
     </div>
@@ -118,10 +122,10 @@
     <div class="box"></div>
     <!-- 底部导航栏 -->
     <div class="tab">
-      <div class="tabItem"><img src="../assets/shouyeR.png" alt=""></div>
-      <div class="tabItem"><img @click="toClassify" src="../assets/fenlei.png" alt=""></div>
-      <div class="tabItem"><img @click="toDiscover" src="../assets/faxian.png" alt=""></div>
-      <div class="tabItem"><img @click="toCart" src="../assets/gouwuche.png" alt=""></div>
+      <div class="tabItem"><img src="../../assets/shouyeR.png" alt=""></div>
+      <div class="tabItem"><img @click="toClassify" src="../../assets/fenlei.png" alt=""></div>
+      <div class="tabItem"><img @click="toDiscover" src="../../assets/faxian.png" alt=""></div>
+      <div class="tabItem"><img @click="toCart" src="../../assets/gouwuche.png" alt=""></div>
       <div class="tabItem"><img @click="toLoginoOrMy" :src="mySrc" alt=""></div>
     </div>
 
@@ -136,14 +140,14 @@ export default {
     return {
       // 轮播图
       banners: [
-        require("../../src/assets/1.jpg"),
-        require("../../src/assets/2.jpg"),
-        require("../../src/assets/3.jpg"),
-        require("../../src/assets/4.jpg"),
-        require("../../src/assets/5.jpg"),
-        require("../../src/assets/6.jpg"),
-        require("../../src/assets/7.jpg"),
-        require("../../src/assets/8.jpg")
+        require("../../assets/1.jpg"),
+        require("../../assets/2.jpg"),
+        require("../../assets/3.jpg"),
+        require("../../assets/4.jpg"),
+        require("../../assets/5.jpg"),
+        require("../../assets/6.jpg"),
+        require("../../assets/7.jpg"),
+        require("../../assets/8.jpg")
       ],
       // 轮播图配置
       swiperOption: {
@@ -161,32 +165,32 @@ export default {
       },
       // 小图标列表
       smallList: [
-        {img: require('../assets/chaoshi.png'), text: '京东超市'},
-        {img: require('../assets/quanqiu.png'), text: '全球购'},
-        {img: require('../assets/fushi.png'), text: '京东服饰'},
-        {img: require('../assets/shengxian.png'), text: '京东生鲜'},
-        {img: require('../assets/paihang.png'), text: '排行榜'},
-        {img: require('../assets/chongzhi.png'), text: '充值缴费'},
-        {img: require('../assets/pingou.png'), text: '9.9元拼'},
-        {img: require('../assets/quan.png'), text: '领券'},
-        {img: require('../assets/zhuanqian.png'), text: '赚钱'},
-        {img: require('../assets/quanbu.png'), text: '全部'},
+        {img: require('../../assets/chaoshi.png'), text: '京东超市'},
+        {img: require('../../assets/quanqiu.png'), text: '全球购'},
+        {img: require('../../assets/fushi.png'), text: '京东服饰'},
+        {img: require('../../assets/shengxian.png'), text: '京东生鲜'},
+        {img: require('../../assets/paihang.png'), text: '排行榜'},
+        {img: require('../../assets/chongzhi.png'), text: '充值缴费'},
+        {img: require('../../assets/pingou.png'), text: '9.9元拼'},
+        {img: require('../../assets/quan.png'), text: '领券'},
+        {img: require('../../assets/zhuanqian.png'), text: '赚钱'},
+        {img: require('../../assets/quanbu.png'), text: '全部'},
       ],
       // 秒杀
       miaoSha: [
-        {img: require('../assets/m1.jpg'), miaoPrice: '99', prePrice: '329'},
-        {img: require('../assets/m2.jpg'), miaoPrice: '9.9', prePrice: '12.8'},
-        {img: require('../assets/m3.jpg'), miaoPrice: '148', prePrice: '325'},
-        {img: require('../assets/m4.jpg'), miaoPrice: '16.8', prePrice: '55'},
-        {img: require('../assets/m5.jpg'), miaoPrice: '2880', prePrice: '3680'},
-        // {img: '../assets/m6.jpg', miaoPrice: '1249', prePrice: '1499'},
-        // {img: '../assets/m7.jpg', miaoPrice: '119', prePrice: '299'},
-        // {img: '../assets/m8.jpg', miaoPrice: '119', prePrice: '249'},
-        // {img: '../assets/m9.jpg', miaoPrice: '8295', prePrice: '9600'},
-        // {img: '../assets/m10.jpg', miaoPrice: '1280', prePrice: '1650'}
+        {img: require('../../assets/m1.jpg'), miaoPrice: '99', prePrice: '329'},
+        {img: require('../../assets/m2.jpg'), miaoPrice: '9.9', prePrice: '12.8'},
+        {img: require('../../assets/m3.jpg'), miaoPrice: '148', prePrice: '325'},
+        {img: require('../../assets/m4.jpg'), miaoPrice: '16.8', prePrice: '55'},
+        {img: require('../../assets/m5.jpg'), miaoPrice: '2880', prePrice: '3680'},
+        // {img: '../../assets/m6.jpg', miaoPrice: '1249', prePrice: '1499'},
+        // {img: '../../assets/m7.jpg', miaoPrice: '119', prePrice: '299'},
+        // {img: '../../assets/m8.jpg', miaoPrice: '119', prePrice: '249'},
+        // {img: '../../assets/m9.jpg', miaoPrice: '8295', prePrice: '9600'},
+        // {img: '../../assets/m10.jpg', miaoPrice: '1280', prePrice: '1650'}
       ],
       // 底部tab图标
-      mySrc: require('../assets/weidenglu.png')
+      mySrc: require('../../assets/weidenglu.png')
     };
   },
   components: {
@@ -195,7 +199,7 @@ export default {
   },
   created() {
     if (localStorage.login === 'login') {
-      this.mySrc = require('../assets/wode.png');
+      this.mySrc = require('../../assets/wode.png');
     }
   },
   methods: {

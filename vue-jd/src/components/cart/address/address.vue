@@ -3,9 +3,9 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../assets/back.png" alt="">
+      <i class="iconfont icon-back" style="color:#909295;font-size:25px;margin:0 10px;" @click="back"></i>
       <span class="headerText">收货地址</span>
-      <img src="../assets/lookMore.png" alt="">
+      <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
     </div>
 
     <!-- 地址 -->
@@ -20,8 +20,8 @@
           <span class="addressInfoText">{{item.city}}{{item.addressDetail}}</span>
         </div>
       </div>
-      <img src="../assets/write.png" @click="updateAddress(item)" alt="">
-      <img src="../assets/delete.png" @click="deleteAddress(item)" alt="">
+      <img src="../../../assets/write.png" @click="updateAddress(item)" alt="">
+      <img src="../../../assets/delete.png" @click="deleteAddress(item)" alt="">
     </div>
 
     <div class="box"></div>

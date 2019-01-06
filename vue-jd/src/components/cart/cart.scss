@@ -6,11 +6,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  img {
-    width: 1.2rem;
-    height: 1.2rem;
-    margin: 0 15px;
-  }
   .headerText {
     color: black;
     font-size: 1.1rem;
@@ -64,7 +59,7 @@
       border-radius: 50%;
       flex: 0 0 auto;
       background-color: #e93b3d;
-      background-image: url(../assets/choose.png);
+      background-image: url(../../assets/choose.png);
       background-repeat: no-repeat;
       background-size: 18px 18px;
     }
@@ -98,7 +93,7 @@
       border-radius: 50%;
       flex: 0 0 auto;
       background-color: #e93b3d;
-      background-image: url(../assets/choose.png);
+      background-image: url(../../assets/choose.png);
       background-repeat: no-repeat;
       background-size: 18px 18px;
     }
@@ -214,7 +209,7 @@
       flex: 0 0 auto;
       margin-bottom: 8px;
       background-color: #e93b3d;
-      background-image: url(../assets/choose.png);
+      background-image: url(../../assets/choose.png);
       background-repeat: no-repeat;
       background-size: 18px 18px;
     }

@@ -10,11 +10,6 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  img {
-    width: 1.2rem;
-    height: 1.2rem;
-    margin: 0 15px;
-  }
   .headerText {
     color: black;
     font-size: 0.9rem;
@@ -73,11 +68,6 @@
       flex: 1 1 auto;
       color: #333333;
       font-size: 12px;
-    }
-    img {
-      flex: 0 0 auto;
-      width: 1.1rem;
-      height: 1.1rem;
     }
   }
 }

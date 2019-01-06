@@ -1,14 +1,18 @@
 <template>
-<!-- 商品详情页面 -->
+  <!-- 商品详情页面 -->
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../assets/back.png" alt="">
+      <i
+        class="iconfont icon-back"
+        style="color:#909295;font-size:25px;margin:0 10px;"
+        @click="back"
+      ></i>
       <span class="headerText">商品</span>
       <span class="headerText">评价</span>
       <span class="headerText">详情</span>
       <span class="headerText">推荐</span>
-      <img src="../assets/lookMore.png" alt="">
+      <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
     </div>
 
     <div class="box1"></div>
@@ -16,7 +20,7 @@
     <!-- 轮播图 -->
     <div class="swiper">
       <swiper :options="swiperOption" ref="mySwiper">
-        <swiper-slide v-for='(item, index) in banners' :key="index">
+        <swiper-slide v-for="(item, index) in banners" :key="index">
           <img :src="item">
         </swiper-slide>
         <div id="swiperOwn" class="swiper-pagination" slot="pagination"></div>
@@ -26,17 +30,19 @@
     <!-- 产品名称、价钱 -->
     <div class="goodInfo">
       <div class="goodInfoName">
-        <img src="../assets/ziying.png" alt="">
+        <img src="../../../assets/ziying.png" alt>
         <span class="goodInfoNameText">{{goodName}}</span>
       </div>
       <div class="goodInfoR">超市周年庆，礼献中秋，享各国美食，尽在京东进口粮油调味！京东自营，质量把控</div>
       <div class="goodInfoPrice">
-        <span class="goodInfoPriceS">￥</span><span class="goodInfoPriceL">27</span><span class="goodInfoPriceS">.90</span>
+        <span class="goodInfoPriceS">￥</span>
+        <span class="goodInfoPriceL">27</span>
+        <span class="goodInfoPriceS">.90</span>
       </div>
       <div class="baitiao">
         <span class="baitiaoTitle">白条</span>
         <span class="baitiaoText">【激活白条】新用户下单立减10元</span>
-        <img src="../assets/lookMore.png" alt="">
+        <i class="iconfont icon-more" style="color:#909295;font-size:20px;margin:0 10px;"></i>
       </div>
     </div>
 
@@ -50,34 +56,33 @@
       <div class="chooseCount">
         <span class="chooseCountTitle">数量</span>
         <div class="chooseCountBox">
-          <img :src="minus" @click="toMinus" alt="">
-          <div class="chooseCountBoxInput"><input type="text" v-model="count" value="1"></div>
-          <img :src="add" @click="toAdd" alt="">
+          <img :src="minus" @click="toMinus" alt>
+          <div class="chooseCountBoxInput">
+            <input type="text" v-model="count" value="1">
+          </div>
+          <img :src="add" @click="toAdd" alt>
         </div>
       </div>
     </div>
-
-
 
     <div class="box2"></div>
     <!-- 底部 -->
     <div class="tab">
       <div class="tabItem">
-        <img src="../assets/chat.png" alt="">
+        <i class="iconfont icon-comment" style="color:#666666;font-size:25px;margin-bottom:2px;"></i>
         <span class="tabItemText">联系客服</span>
       </div>
       <div class="tabItem">
-        <img src="../assets/shop.png" alt="">
+        <i class="iconfont icon-shop" style="color:#666666;font-size:25px;margin-bottom:2px;"></i>
         <span class="tabItemText">进店</span>
       </div>
       <div class="tabItem" @click="toCart">
-        <img src="../assets/cartSmall.png" alt="">
+        <i class="iconfont icon-cart" style="color:#666666;font-size:25px;margin-bottom:2px;"></i>
         <span class="tabItemText">购物车</span>
       </div>
       <button class="addCart" @click="addCart">加入购物车</button>
       <button class="buy">立即购买</button>
     </div>
-
   </div>
 </template>
 
@@ -90,8 +95,8 @@ export default {
     return {
       // 轮播图
       banners: [
-        require("../assets/huojimian.jpg"),
-        require("../assets/huojimian1.jpg")
+        require("../../../assets/huojimian.jpg"),
+        require("../../../assets/huojimian1.jpg")
       ],
       // 轮播图配置
       swiperOption: {
@@ -115,8 +120,8 @@ export default {
       red1: true,
       red2: false,
       count: 1,
-      minus: require("../assets/unMinus.png"),
-      add: require("../assets/add.png"),
+      minus: require("../../../assets/unMinus.png"),
+      add: require("../../../assets/add.png"),
       success: false
     };
   },
@@ -124,10 +129,10 @@ export default {
     count: function(val, oldval) {
       console.log(val);
       if (val == 1) {
-        this.minus = "../assets/unMinus.png";
+        this.minus = "../../../assets/unMinus.png";
       }
       if (val != 1) {
-        this.minus = "../assets/minus.png";
+        this.minus = "../../../assets/minus.png";
       }
     }
   },
@@ -163,7 +168,7 @@ export default {
           } else {
             kouwei = "辛拉面";
           }
-          
+
           axios
             .post("http://localhost:7001/addCart", {
               goodName: this.goodName,

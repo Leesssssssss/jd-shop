@@ -3,16 +3,16 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <img @click="back" src="../assets/back.png" alt="">
+      <i class="iconfont icon-back" style="color:#909295;font-size:25px;margin:0 10px;" @click="back"></i>
       <span class="headerText">账号管理</span>
-      <img src="../assets/lookMore.png" alt="">
+      <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
     </div>
 
     <!-- 表单 -->
     <div class="one">当前登录账号</div>
     <div class="two">
       <div>
-        <img src="../assets/management.png" alt="">
+        <img src="../../../assets/management.png" alt="">
       </div>
       <div class="twoItem">
         <span class="name">{{name}}</span>
@@ -21,48 +21,48 @@
     </div>
     <div class="three" @click="changePassword">
       <div>修改登录密码</div>
-      <img src="../assets/right.png" alt="">
+      <img src="../../../assets/right.png" alt="">
     </div>
     <div class="three" @click="changeTelNum">
       <div>修改绑定手机号码</div>
       <div class="threeItem">
         <div class="telNum">{{telNum}}</div>
-        <img src="../assets/right.png" alt="">
+        <img src="../../../assets/right.png" alt="">
       </div>
     </div>
     <div class="three">
       <div>支付密码管理</div>
-      <img src="../assets/right.png" alt="">
+      <img src="../../../assets/right.png" alt="">
     </div>
     <div class="three" @click="address">
       <div>收货地址管理</div>
-      <img src="../assets/right.png" alt="">
+      <img src="../../../assets/right.png" alt="">
     </div>
     <div class="three">
       <div>切换站点</div>
-      <img src="../assets/right.png" alt="">
+      <img src="../../../assets/right.png" alt="">
     </div>
     <div class="three">
       <div>实名认证</div>
-      <img src="../assets/right.png" alt="">
+      <img src="../../../assets/right.png" alt="">
     </div>
     <div class="three">
       <div>关联账号</div>
-      <img src="../assets/right.png" alt="">
+      <img src="../../../assets/right.png" alt="">
     </div>
 
     <!-- 底部 -->
     <div class="tab">
       <div class="tabItem">
-        <img src="../assets/fankui.png" alt="">
+        <img src="../../../assets/fankui.png" alt="">
         <span class="tabItemText">意见反馈</span>
       </div>
       <div class="tabItem">
-        <img src="../assets/jdDog.png" alt="">
+        <img src="../../../assets/jdDog.png" alt="">
         <span class="tabItemText">京东客户端</span>
       </div>
       <div class="tabItem" @click="unLogin">
-        <img src="../assets/tuichu.png" alt="">
+        <img src="../../../assets/tuichu.png" alt="">
         <span class="tabItemText">退出登录</span>
       </div>
     </div>

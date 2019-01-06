@@ -3,13 +3,11 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <!-- <img @click="back" src="../assets/back.png" alt=""> -->
       <span class="headerText">订单支付成功</span>
-      <!-- <img src="../assets/lookMore.png" alt=""> -->
     </div>
 
     <div class="order">
-      <img src="../assets/order.png" alt="">
+      <img src="../../../assets/order.png" alt="">
       <div class="orderItem">
         <div>
           <span class="orderItemTitle">支付方式：</span>
