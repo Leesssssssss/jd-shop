@@ -36,10 +36,6 @@
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    .compile {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
     .userInfoText {
       color: #f2f2f2;
       font-size: 12px;
@@ -49,11 +45,6 @@
       display: flex;
       align-items: center;
       margin-top: 10px;
-      .tongpaiPic {
-        width: 1rem;
-        height: 1rem;
-        margin: 2px;
-      }
       .tongpaiText {
         font-size: 12px;
         color: white;
@@ -66,10 +57,6 @@
     align-items: center;
     margin-right: 20px;
     margin-bottom: 10vh;
-    img {
-      width: 1rem;
-      height: 1rem;
-    }
     .shezhiText {
       font-size: 12px;
       color: #83231b;
@@ -89,10 +76,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    img {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
     .oneBoxItemText {
       font-size: 12px;
       color: #666666;
@@ -113,10 +96,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    img {
-      width: 1.2rem;
-      height: 1.2rem;
-    }
     .twoBoxItemTextRBig {
       color: #e4393c;
       font-size: 16px;
@@ -172,9 +151,13 @@
     flex: 1 1 25%;
     align-items: center;
     justify-content: center;
-    img {
-      width: 1.2rem;
-      height: 1.2rem;
+    .icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+      // margin: 10px 0;
     }
     .fourBoxItemText {
       font-size: 12px;
@@ -272,10 +255,18 @@
   background-color: white;
   .tabItem {
     width: 20%;
-    height: 90%;
+    height: 72%;
     text-align: center;
-    img {
-      width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .tabTit {
+      color: #7c7e86;
+      font-size: 12px;
+    }
+    .tabTitR {
+      color: #f23030;
+      font-size: 12px;
     }
   }
 }

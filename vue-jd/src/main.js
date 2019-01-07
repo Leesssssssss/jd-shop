@@ -14,6 +14,7 @@ import 'mint-ui/lib/style.css'
 
 import '../static/css/reset.css'
 import '../src/assets/iconfont/iconfont.css'
+import '../src/assets/iconfont/iconfont.js'
 
 
 import router from './router'

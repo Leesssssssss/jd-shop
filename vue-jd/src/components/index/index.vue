@@ -6,7 +6,7 @@
     <!-- 头部搜索框 -->
     <div class="header">
       <div class="headerPic">
-        <i class="iconfont icon-sort" style="color:#fff;font-size:30px;"></i>
+        <i class="iconfont icon-caidan" style="color:#fff;font-size:30px;"></i>
       </div>
       <input class="input" type="text" placeholder="电脑主机">
       <div class="headerPic">
@@ -46,7 +46,9 @@
           <div class="miaoHeaderLeftTitle">京东秒杀</div>
           <div class="miaoHeaderLeftTime">16点场 00:53:15</div>
         </div>
-        <div class="miaoHeaderRight">更多秒杀<img src="../../assets/more.png" alt=""></div>
+        <div class="miaoHeaderRight">更多秒杀
+          <i class="iconfont icon-roundrightfill" style="color:#f23030;font-size:13px;"></i>
+        </div>
       </div>
       <div class="miaoSha">
         <div class="miaoShaItem" v-for="item in miaoSha">
@@ -122,11 +124,26 @@
     <div class="box"></div>
     <!-- 底部导航栏 -->
     <div class="tab">
-      <div class="tabItem"><img src="../../assets/shouyeR.png" alt=""></div>
-      <div class="tabItem"><img @click="toClassify" src="../../assets/fenlei.png" alt=""></div>
-      <div class="tabItem"><img @click="toDiscover" src="../../assets/faxian.png" alt=""></div>
-      <div class="tabItem"><img @click="toCart" src="../../assets/gouwuche.png" alt=""></div>
-      <div class="tabItem"><img @click="toLoginoOrMy" :src="mySrc" alt=""></div>
+      <div class="tabItem">
+        <i class="iconfont icon-homefill" style="color:#f23030;font-size:28px;"></i>
+        <div class="tabTitR">首页</div>
+      </div>
+      <div class="tabItem" @click="toClassify">
+        <i class="iconfont icon-sousuoleimu" style="color:#7c7e86;font-size:28px;"></i>
+        <div class="tabTit">分类</div>
+      </div>
+      <div class="tabItem" @click="toDiscover">
+        <i class="iconfont icon-faxian" style="color:#7c7e86;font-size:28px;"></i>
+        <div class="tabTit">发现</div>
+      </div>
+      <div class="tabItem" @click="toCart">
+        <i class="iconfont icon-cart" style="color:#7c7e86;font-size:28px;"></i>
+        <div class="tabTit">购物车</div>
+      </div>
+      <div class="tabItem" @click="toLoginoOrMy">
+        <i class="iconfont icon-my" style="color:#7c7e86;font-size:28px;"></i>
+        <div class="tabTit">{{text}}</div>
+      </div>
     </div>
 
   </div>
@@ -189,8 +206,8 @@ export default {
         // {img: '../../assets/m9.jpg', miaoPrice: '8295', prePrice: '9600'},
         // {img: '../../assets/m10.jpg', miaoPrice: '1280', prePrice: '1650'}
       ],
-      // 底部tab图标
-      mySrc: require('../../assets/weidenglu.png')
+      // 底部tab文字
+      text: '未登录'
     };
   },
   components: {
@@ -199,7 +216,7 @@ export default {
   },
   created() {
     if (localStorage.login === 'login') {
-      this.mySrc = require('../../assets/wode.png');
+      this.text = '我的';
     }
   },
   methods: {

@@ -16,15 +16,15 @@
         <img src="../../assets/touxiang.png" alt="">
       </div>
       <div class="userInfo">
-        <img class="compile" src="../../assets/compile.png" alt="">
+        <i class="iconfont icon-bianji" style="color:#fff;font-size:12px;"></i>
         <span class="userInfoText">用户名：{{userName}}</span>
         <div class="tongpai">
-          <img class="tongpaiPic" src="../../assets/tongpai.png" alt="">
+          <i class="iconfont icon-JD" style="color:#f0b576;font-size:18px;margin-right:5px;"></i>
           <span class="tongpaiText">铜牌会员</span>
         </div>
       </div>
       <div class="shezhi" @click="toManagement">
-        <img src="../../assets/shezhi.png" alt="">
+        <i class="iconfont icon-setting" style="color:#83231b;font-size:16px;"></i>
         <span class="shezhiText">账号管理</span>
       </div>
     </div>
@@ -32,19 +32,19 @@
     <!-- 条框1 -->
     <div class="oneBox">
       <div class="oneBoxItem">
-        <img src="../../assets/pay.png" alt="">
+        <i class="iconfont icon-xinyongqiahuankuan" style="color:#dd9e58;font-size:20px;"></i>
         <span class="oneBoxItemText">待付款</span>
       </div>
       <div class="oneBoxItem">
-        <img src="../../assets/car.png" alt="">
+        <i class="iconfont icon-kuaidi" style="color:#dd9e58;font-size:20px;"></i>
         <span class="oneBoxItemText">待收货</span>
       </div>
       <div class="oneBoxItem">
-        <img src="../../assets/tui.png" alt="">
+        <i class="iconfont icon-huabanfuben" style="color:#dd9e58;font-size:20px;"></i>
         <span class="oneBoxItemText">退换/售后</span>
       </div>
       <div class="oneBoxItem" @click="toOrderList">
-        <img src="../../assets/ding.png" alt="">
+        <i class="iconfont icon-dingdan1" style="color:#e93b3d;font-size:20px;"></i>
         <span class="oneBoxItemText">全部订单</span>
       </div>
     </div>
@@ -80,7 +80,7 @@
         <span class="twoBoxItemText">礼品卡</span>
       </div>
       <div class="twoBoxItem">
-        <img src="../../assets/zichan.png" alt="">
+        <i class="iconfont icon-qianbao" style="color:#e93b3d;font-size:20px;"></i>
         <span class="twoBoxItemText">全部资产</span>
       </div>
     </div>
@@ -104,31 +104,45 @@
     <!-- 条框4 -->
     <div class="fourBox">
       <div class="fourBoxItem">
-        <img src="../../assets/w1.png" alt="">
+        <svg class="icon" aria-hidden="true" style="font-size:25px;">
+          <use xlink:href="#icon-hongbao"></use>
+        </svg>
         <span class="fourBoxItemText">用户福利</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../assets/w2.png" alt="">
+        <svg class="icon" aria-hidden="true" style="font-size:25px;">
+          <use xlink:href="#icon-tubiaozhizuomoban_huoche"></use>
+        </svg>
         <span class="fourBoxItemText">京东火车票</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../assets/w3.png" alt="">
+        <svg class="icon" aria-hidden="true" style="font-size:25px;">
+          <use xlink:href="#icon-yuyue1"></use>
+        </svg>
         <span class="fourBoxItemText">我的预约</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../assets/w4.png" alt="">
+        <svg class="icon" aria-hidden="true" style="font-size:25px;">
+          <use xlink:href="#icon-yingyong"></use>
+        </svg>
         <span class="fourBoxItemText">应用推荐</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../assets/w5.png" alt="">
+        <svg class="icon" aria-hidden="true" style="font-size:25px;">
+          <use xlink:href="#icon-zhaofangzi"></use>
+        </svg>
         <span class="fourBoxItemText">京东通信营业厅</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../assets/w6.png" alt="">
+        <svg class="icon" aria-hidden="true" style="font-size:25px;">
+          <use xlink:href="#icon-tubiaozhizuomoban_feiji"></use>
+        </svg>
         <span class="fourBoxItemText">京东机票</span>
       </div>
       <div class="fourBoxItem">
-        <img src="../../assets/w7.png" alt="">
+        <svg class="icon" aria-hidden="true" style="font-size:25px;">
+          <use xlink:href="#icon-tubiaozhizuomoban_jiudian"></use>
+        </svg>
         <span class="fourBoxItemText">京东酒店</span>
       </div>
       <div class="fourBoxItem"></div>
@@ -160,11 +174,26 @@
 
     <!-- 底部导航栏 -->
     <div class="tab">
-      <div class="tabItem"><img @click="toIndex" src="../../assets/shouye.png" alt=""></div>
-      <div class="tabItem"><img @click="toClassify" src="../../assets/fenlei.png" alt=""></div>
-      <div class="tabItem"><img @click="toDiscover" src="../../assets/faxian.png" alt=""></div>
-      <div class="tabItem"><img @click="toCart" src="../../assets/gouwuche.png" alt=""></div>
-      <div class="tabItem"><img src="../../assets/wodeR.png" alt=""></div>
+      <div class="tabItem" @click="toIndex">
+        <i class="iconfont icon-home" style="color:#7c7e86;font-size:28px;"></i>
+        <div class="tabTit">首页</div>
+      </div>
+      <div class="tabItem" @click="toClassify">
+        <i class="iconfont icon-sousuoleimu" style="color:#7c7e86;font-size:28px;"></i>
+        <div class="tabTit">分类</div>
+      </div>
+      <div class="tabItem" @click="toDiscover">
+        <i class="iconfont icon-faxian" style="color:#7c7e86;font-size:28px;"></i>
+        <div class="tabTit">发现</div>
+      </div>
+      <div class="tabItem" @click="toCart">
+        <i class="iconfont icon-cart" style="color:#7c7e86;font-size:28px;"></i>
+        <div class="tabTit">购物车</div>
+      </div>
+      <div class="tabItem">
+        <i class="iconfont icon-my_fill_light" style="color:#f23030;font-size:28px;"></i>
+        <div class="tabTitR">我的</div>
+      </div>
     </div>
 
   </div>

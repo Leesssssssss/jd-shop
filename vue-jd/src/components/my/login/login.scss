@@ -63,10 +63,6 @@
         flex: 1 1 auto;
         outline: none;
       }
-      .loginAccountItemEye {
-        width: 2rem;
-        height: 1.8rem;
-      }
       .loginAccountItemYan {
         width: 5.5rem;
         height: 1.5rem;
@@ -121,11 +117,6 @@
       font-size: 12px;
       display: flex;
       align-items: center;
-      img {
-        width: 1.2rem;
-        height: 1rem;
-        margin-right: 5px;
-      }
     }
   }
 
@@ -147,11 +138,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      img {
-        width: 1.5rem;
-        height: 1.3rem;
-        margin: 30px;
-      }
     }
     .otherLoginText {
       font-size: 14px;

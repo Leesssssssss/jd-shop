@@ -275,10 +275,18 @@
   background-color: white;
   .tabItem {
     width: 20%;
-    height: 90%;
+    height: 72%;
     text-align: center;
-    img {
-      width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .tabTit {
+      color: #7c7e86;
+      font-size: 12px;
+    }
+    .tabTitR {
+      color: #f23030;
+      font-size: 12px;
     }
   }
 }

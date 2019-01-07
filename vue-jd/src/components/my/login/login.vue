@@ -28,7 +28,7 @@
         <div class="loginAccountItem">
           <div class="loginAccountItemText">密码</div>
           <input v-model="items.password" ref="password" type="password" placeholder="请输入密码">
-          <img class="loginAccountItemEye" src="../../../assets/eye.png" alt="">
+          <i class="iconfont icon-attentionforbidfill" style="color:#c7c7c7;font-size:22px;margin-right:5px;"></i>
         </div>
         <div class="loginAccountItem">
           <div class="loginAccountItemText">验证码</div>
@@ -44,11 +44,11 @@
 
       <div class="little">
         <div class="littleItem">
-          <img src="../../../assets/password.png" alt="">
+          <i class="iconfont icon-lock" style="color:#c7c7c7;margin-right:5px;"></i>
           <span>忘记密码</span>
         </div>
         <div class="littleItem">
-          <img src="../../../assets/telephone.png" alt="">
+          <i class="iconfont icon-shouji" style="color:#c7c7c7;margin-right:5px;"></i>
           <span @click="toSignUp">手机快速注册</span>
         </div>
       </div>
@@ -56,8 +56,8 @@
       <div class="otherLogin">
         <h4 class="otherLoginTitle">其他登录方式</h4>
         <div class="otherLoginPic">
-          <img src="../../../assets/QQ.png" alt="">
-          <img src="../../../assets/wechat.png" alt="">
+          <i class="iconfont icon-QQ" style="color:#5eaeff;font-size:28px;margin:30px;"></i>
+          <i class="iconfont icon-wechat" style="color:#87d26f;font-size:28px;margin:30px;"></i>
         </div>
         <div class="otherLoginText">登录即代表同意您已同意京东隐私政策</div>
       </div>
