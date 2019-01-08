@@ -12,6 +12,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
 import '../static/css/reset.css'
 import '../src/assets/iconfont/iconfont.css'
 import '../src/assets/iconfont/iconfont.js'
@@ -23,6 +26,7 @@ Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI)
 Vue.use(Mint)
+Vue.use(Vant);
 
 /* eslint-disable no-new */
 new Vue({
