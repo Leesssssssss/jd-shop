@@ -34,7 +34,7 @@
           <span class="orderNumTitle">订单号：</span>
           <span class="orderNumText">{{order.orderNum}}</span>
         </div>
-        <img src="../../../assets/delete1.png" alt="" @click.stop="deleteOrder(order)">
+        <i class="iconfont icon-delete" style="color:#d9d9d9;" @click.stop="deleteOrder(order)"></i>
       </div>
 
       <!-- @click.stop阻止事件继续传播 -->
@@ -55,7 +55,7 @@
 
       <div class="goods">
         <div class="shopName">
-          <img src="../../../assets/jdd.png" alt="">
+          <i class="iconfont icon-jd-copy" style="color:#999999;font-size:18px;margin-right:5px;"></i>
           <span class="shopNameTitle">京东</span>
         </div>
         <div class="goodsList" v-for="good in order.goods">

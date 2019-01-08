@@ -44,9 +44,6 @@
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #f2f2f2;
-    img {
-      width: 1.2rem;
-    }
     .orderNum {
       .orderNumTitle {
         color: #999999;
@@ -87,10 +84,6 @@
     .shopName {
       display: flex;
       align-items: center;
-      img {
-        width: 1rem;
-        margin-right: 5px;
-      }
     }
     .goodsList {
       display: flex;
@@ -124,22 +117,27 @@
   padding: 20px 0 100px 0;
 }
 
-
-
 // 修改input标签placeholder文字属性
-::-webkit-input-placeholder { /* WebKit browsers */
+::-webkit-input-placeholder {
+  /* WebKit browsers */
   font-size: 14px;
   color: #cccccc;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
   font-size: 14px;
   color: #cccccc;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
   font-size: 14px;
   color: #cccccc;
 }
-:-ms-input-placeholder { /* Internet Explorer 10+ */
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
   font-size: 14px;
   color: #cccccc;
 }

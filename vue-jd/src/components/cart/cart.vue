@@ -19,7 +19,8 @@
     <div class="cart" v-show="cart">
       <div class="shopName">
         <div v-bind:class="{ checkBoxR: allChoose, checkBox: !allChoose }" @click="choose"></div>
-        <img src="../../assets/jdd.png" alt="">
+        <!-- <img src="../../assets/jdd.png" alt=""> -->
+        <i class="iconfont icon-jd-copy" style="color:#999999;font-size:18px;margin-right:5px;"></i>
         <span class="shopNameTitle">京东自营</span>
       </div>
       <div class="goodList" v-for="(good,index) in goods">

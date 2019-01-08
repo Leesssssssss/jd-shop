@@ -22,6 +22,7 @@
     <div class="three" @click="changePassword">
       <div>修改登录密码</div>
       <img src="../../../assets/right.png" alt="">
+      <!-- <i class="iconfont " style="color:#7b7b7b;"></i> -->
     </div>
     <div class="three" @click="changeTelNum">
       <div>修改绑定手机号码</div>
