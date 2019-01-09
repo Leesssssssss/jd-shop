@@ -31,9 +31,12 @@
   background-color: #ffffff;
   .jdPay {
     padding: 20px 0 10px 10px;
-    img {
-      width: 131px;
-      height: 30px;
+    .icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
     }
   }
   .bankCard {

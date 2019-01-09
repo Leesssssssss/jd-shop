@@ -52,7 +52,6 @@
     <div class="goods">
       <div class="shopName">
         <div class="shopNameLeft">
-          <!-- <img src="../../../assets/jdd.png" alt=""> -->
           <i class="iconfont icon-jd-copy" style="color:#999999;font-size:18px;margin-right:5px;"></i>
           <span class="shopNameTitle">京东</span>
         </div>

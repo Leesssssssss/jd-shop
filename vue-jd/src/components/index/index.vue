@@ -104,6 +104,23 @@
       </div>
     </div>
 
+    <!-- 商品 -->
+    <div class="goods">
+      <div style="margin:0 0 20px 10px;font-size:18px;font-weight:700;">猜你喜欢</div>
+      <div class="good">
+        <div class="goodItem" v-for="good in goods" @click="toGoodDetail">
+          <img :src="good.img" alt>
+          <div class="goodTit">
+            <div class="tit">{{good.title}}</div>
+            <div>
+              <span class="price">{{good.price}}</span>
+              <span class="prePrice">{{good.prePrice}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- 底部 -->
     <div class="bottom">
       <ul class="bottomOne">
@@ -199,12 +216,58 @@ export default {
         {img: require('../../assets/m2.jpg'), miaoPrice: '9.9', prePrice: '12.8'},
         {img: require('../../assets/m3.jpg'), miaoPrice: '148', prePrice: '325'},
         {img: require('../../assets/m4.jpg'), miaoPrice: '16.8', prePrice: '55'},
-        {img: require('../../assets/m5.jpg'), miaoPrice: '2880', prePrice: '3680'},
-        // {img: '../../assets/m6.jpg', miaoPrice: '1249', prePrice: '1499'},
-        // {img: '../../assets/m7.jpg', miaoPrice: '119', prePrice: '299'},
-        // {img: '../../assets/m8.jpg', miaoPrice: '119', prePrice: '249'},
-        // {img: '../../assets/m9.jpg', miaoPrice: '8295', prePrice: '9600'},
-        // {img: '../../assets/m10.jpg', miaoPrice: '1280', prePrice: '1650'}
+        {img: require('../../assets/m5.jpg'), miaoPrice: '2880', prePrice: '3680'}
+      ],
+      // 商品
+      goods: [
+        {
+          img: require("../../assets/c11.jpg"),
+          title: "手机手机手机",
+          price: "￥1600",
+          prePrice: "￥1800"
+        },
+        {
+          img: require("../../assets/c12.png"),
+          title: "电磁炉电磁炉电磁炉",
+          price: "￥280",
+          prePrice: "￥360"
+        },
+        {
+          img: require("../../assets/c14.png"),
+          title: "篮球篮球篮球",
+          price: "￥199",
+          prePrice: "￥199"
+        },
+        {
+          img: require("../../assets/c15.jpg"),
+          title: "皮鞋皮鞋皮鞋",
+          price: "￥559",
+          prePrice: "￥628"
+        },
+        {
+          img: require("../../assets/c51.jpg"),
+          title: "保湿面膜保湿面膜",
+          price: "￥99",
+          prePrice: "￥129"
+        },
+        {
+          img: require("../../assets/c52.jpg"),
+          title: "口红口红口红",
+          price: "￥210",
+          prePrice: "￥238"
+        },
+        {
+          img: require("../../assets/c61.jpg"),
+          title: "抽纸抽纸抽纸",
+          price: "￥19.9",
+          prePrice: "￥25.6"
+        },
+        {
+          img: require("../../assets/c62.jpg"),
+          title: "洗发露沐浴露",
+          price: "￥39",
+          prePrice: "￥42"
+        }
       ],
       // 底部tab文字
       text: '未登录'
@@ -222,6 +285,9 @@ export default {
   methods: {
     goAnchor() {
       app.scrollIntoView();
+    },
+    toGoodDetail() {
+      this.$router.push({ 'path': '/goodDetail' });
     },
     toClassify() {
       this.$router.push({ 'path': '/classify' });

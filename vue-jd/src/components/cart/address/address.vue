@@ -20,8 +20,8 @@
           <span class="addressInfoText">{{item.city}}{{item.addressDetail}}</span>
         </div>
       </div>
-      <img src="../../../assets/write.png" @click="updateAddress(item)" alt="">
-      <img src="../../../assets/delete.png" @click="deleteAddress(item)" alt="">
+      <i class="iconfont icon-write" style="color:#767676;font-size:23px;margin-right:20px;" @click="updateAddress(item)"></i>
+      <i class="iconfont icon-delete" style="color:#767676;font-size:20px;margin-right:20px;" @click="deleteAddress(item)"></i>
     </div>
 
     <div class="box"></div>

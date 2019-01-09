@@ -1,9 +1,13 @@
 <template>
-<!-- 确认订单页面 -->
+  <!-- 确认订单页面 -->
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <i class="iconfont icon-back" style="color:#909295;font-size:25px;margin:0 10px;" @click="back"></i>
+      <i
+        class="iconfont icon-back"
+        style="color:#909295;font-size:25px;margin:0 10px;"
+        @click="back"
+      ></i>
       <span class="headerText">确认订单</span>
       <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
     </div>
@@ -11,35 +15,37 @@
     <!-- 地址 -->
     <div class="address" v-if="haveAddress" @click="chooseAddress">
       <div class="addressInfo">
-        <div class="addressInfoTitle">{{address.name}}  {{telNum}}</div>
+        <div class="addressInfoTitle">{{address.name}} {{telNum}}</div>
         <div>
           <span class="red" v-if="address.isDefault">默认</span>
           <span class="addressInfoText">{{address.city}}{{address.addressDetail}}</span>
         </div>
       </div>
-      <img src="../../../assets/backRight.png" alt="">
+      <i class="iconfont icon-right" style="color:#cccccc;margin-right:10px;"></i>
     </div>
 
     <!-- 没有地址 -->
     <div class="noAddress" v-if="!haveAddress">
-      <button class="noAddressBtn" @click="chooseAddress">+  添加地址</button>
+      <button class="noAddressBtn" @click="chooseAddress">+ 添加地址</button>
     </div>
 
     <!-- 商品信息 -->
     <div class="cart">
       <div class="shopName">
-        <!-- <img src="../../../assets/jdd.png" alt=""> -->
         <i class="iconfont icon-jd-copy" style="color:#999999;font-size:18px;margin-right:5px;"></i>
         <span class="shopNameTitle">京东自营</span>
       </div>
       <div class="goodList" v-for="(good,index) in goods">
-        <img :src="good.pic" alt="">
+        <img :src="good.pic" alt>
         <div class="goodInfo">
           <div class="goodInfoTitle">
-            <img src="https://img11.360buyimg.com/jdphoto/s102x28_jfs/t14512/288/2659278877/2368/8468a10d/5aadf9daNd4909ddc.png!q70.webp" alt="">
+            <img
+              src="https://img11.360buyimg.com/jdphoto/s102x28_jfs/t14512/288/2659278877/2368/8468a10d/5aadf9daNd4909ddc.png!q70.webp"
+              alt
+            >
             <span class="goodInfoText">{{good.goodName}}</span>
           </div>
-          <div class="goodInfoKouwei">0.72kg/件,  {{good.kouwei}}</div>
+          <div class="goodInfoKouwei">0.72kg/件, {{good.kouwei}}</div>
           <div class="goodInfoPriceAndCount">
             <div class="goodInfoPrice">￥{{good.price}}</div>
             <div class="goodCount">x {{good.count}}</div>
@@ -62,28 +68,28 @@
         <span class="cardItemTitle">促销优惠</span>
         <div class="cardItemText1">
           <span>查看更多优惠</span>
-          <img src="../../../assets/backRight.png" alt="">
+          <i class="iconfont icon-right" style="color:#cccccc;margin:0 10px;"></i>
         </div>
       </div>
       <div class="cardItem">
         <span class="cardItemTitle">发票信息</span>
         <div class="cardItemText2">
-          <span>电子发票  个人  商品明细</span>
-          <img src="../../../assets/backRight.png" alt="">
+          <span>电子发票 个人 商品明细</span>
+          <i class="iconfont icon-right" style="color:#cccccc;margin:0 10px;"></i>
         </div>
       </div>
       <div class="cardItem">
         <span class="cardItemTitle">礼品卡</span>
         <div class="cardItemText3">
           <span>无可用</span>
-          <img src="../../../assets/backRight.png" alt="">
+          <i class="iconfont icon-right" style="color:#cccccc;margin:0 10px;"></i>
         </div>
       </div>
       <div class="cardItem">
         <span class="cardItemTitle">京豆</span>
         <div class="cardItemText3">
           <span>未满1000个，暂不可使用</span>
-          <img src="../../../assets/backRight.png" alt="">
+          <i class="iconfont icon-right" style="color:#cccccc;margin:0 10px;"></i>
         </div>
       </div>
     </div>
@@ -109,8 +115,6 @@
       <button class="btn1">货到付款</button>
       <button class="btn2" @click="toPay">在线支付</button>
     </div>
-
-
   </div>
 </template>
 

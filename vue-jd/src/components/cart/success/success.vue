@@ -7,7 +7,9 @@
     </div>
 
     <div class="order">
-      <img src="../../../assets/order.png" alt="">
+      <svg class="icon" aria-hidden="true" style="font-size:60px;margin-right:20px;">
+        <use xlink:href="#icon-zhifuchenggong"></use>
+      </svg>
       <div class="orderItem">
         <div>
           <span class="orderItemTitle">支付方式：</span>
@@ -28,7 +30,6 @@
 
     <!-- 提示信息 -->
     <div class="attention">注意：京东平台及销售商不会以订单异常、系统升级为由要求您点击任何网址链接进行退款操作。</div>
-
   </div>
 </template>
 
@@ -56,10 +57,10 @@ export default {
   },
   methods: {
     orderDetail() {
-      this.$router.push({ 'path': '/orderDetail' });
+      this.$router.push({ path: "/orderDetail" });
     },
     goBack() {
-      this.$router.push({ 'path': '/' });
+      this.$router.push({ path: "/" });
     }
   }
 };

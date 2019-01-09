@@ -23,8 +23,12 @@
   justify-content: center;
   align-items: center;
   padding: 30px 0;
-  img {
-    width: 80px;
+  .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
   }
   .orderItem {
     .orderItemTitle {

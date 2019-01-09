@@ -1,11 +1,15 @@
 <template>
-<!-- 个人信息页面 -->
+  <!-- 个人信息页面 -->
   <div>
-     <!-- 返回顶部的定位 -->
+    <!-- 返回顶部的定位 -->
     <a id="top"></a>
     <!-- 顶部 -->
     <div class="header">
-      <i class="iconfont icon-back" style="color:#909295;font-size:25px;margin:0 10px;" @click="back"></i>
+      <i
+        class="iconfont icon-back"
+        style="color:#909295;font-size:25px;margin:0 10px;"
+        @click="back"
+      ></i>
       <span class="headerText">我的京东</span>
       <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
     </div>
@@ -13,7 +17,7 @@
     <!-- 个人资料卡 -->
     <div class="card">
       <div class="touxiang">
-        <img src="../../assets/touxiang.png" alt="">
+        <img src="../../assets/touxiang.png" alt>
       </div>
       <div class="userInfo">
         <i class="iconfont icon-bianji" style="color:#fff;font-size:12px;"></i>
@@ -151,7 +155,7 @@
     <!-- 条框5 -->
     <div class="fiveBox">
       <span class="fiveBoxText">客户服务</span>
-      <img src="../../assets/backRight.png" alt="">
+      <i class="iconfont icon-right" style="color:#cccccc;margin:0 5px;"></i>
     </div>
 
     <!-- 底部 -->
@@ -163,9 +167,15 @@
         <li class="bottomOneItemLast" @click="goAnchor">返回顶部</li>
       </ul>
       <ul class="bottomTwo">
-        <li class="bottomTwoItem"><img src="../../assets/kehuduan.png" alt=""></li>
-        <li class="bottomTwoItem"><img src="../../assets/guojiban.png" alt=""></li>
-        <li class="bottomTwoItem"><img src="../../assets/diannaoban.png" alt=""></li>
+        <li class="bottomTwoItem">
+          <img src="../../assets/kehuduan.png" alt>
+        </li>
+        <li class="bottomTwoItem">
+          <img src="../../assets/guojiban.png" alt>
+        </li>
+        <li class="bottomTwoItem">
+          <img src="../../assets/diannaoban.png" alt>
+        </li>
       </ul>
       <div class="bottomText">Copyright &copy; 2018 京东版权所有</div>
     </div>
@@ -195,7 +205,6 @@
         <div class="tabTitR">我的</div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -203,8 +212,8 @@
 export default {
   data() {
     return {
-      userName: ''
-    }
+      userName: ""
+    };
   },
   created() {
     this.userName = localStorage.userName;
@@ -219,31 +228,30 @@ export default {
     outLogin() {
       localStorage.clear();
       location.reload();
-      this.$router.push({ 'path': '/login' });
+      this.$router.push({ path: "/login" });
     },
     toIndex() {
-      this.$router.push({ 'path': '/' });
+      this.$router.push({ path: "/" });
     },
     toClassify() {
-      this.$router.push({ 'path': '/classify' });
+      this.$router.push({ path: "/classify" });
     },
     toDiscover() {
-      this.$router.push({ 'path': '/discover' });
+      this.$router.push({ path: "/discover" });
     },
     toCart() {
-      this.$router.push({ 'path': '/cart' });
+      this.$router.push({ path: "/cart" });
     },
     toManagement() {
-      this.$router.push({ 'path': '/accountManagement' });
+      this.$router.push({ path: "/accountManagement" });
     },
     toOrderList() {
-      this.$router.push({ 'path': '/orderList' });
+      this.$router.push({ path: "/orderList" });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 @import "./my.scss";
-
 </style>
