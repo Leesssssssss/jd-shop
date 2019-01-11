@@ -34,9 +34,9 @@
           <div class="goodInfoPriceAndCount">
             <div class="goodInfoPrice">￥{{good.price}}</div>
             <div class="chooseCountBox">
-              <img :src="good.count === 1 ? minus:unMinus" @click="toMinus(good)" alt="">
+              <i class="iconfont icon-jianhao" v-bind:class="[good.count === 1 ? 'buKeJian':'keJian']" @click="toMinus(good)"></i>
               <div class="chooseCountBoxInput"><input type="number" v-model.number="good.count" @blur="change(good)" onkeypress="return(/[\d]/.test(String.fromCharCode(event.keyCode)))"></div>
-              <img :src="add" @click="toAdd(good)" alt="">
+              <i class="iconfont icon-jiahao1 keJian" @click="toAdd(good)"></i>
             </div>
           </div>
           <div class="goodInfoDelete" @click="deleteGood(good)">删除</div>
@@ -77,9 +77,6 @@ export default {
       text: "登录后可同步购物车中商品",
       loginBtn: true,
       goods: [],
-      minus: require("../../assets/unMinus.png"),
-      unMinus: require("../../assets/minus.png"),
-      add: require("../../assets/add.png"),
       allChoose: false,
       checked: false,
       haveGood: false

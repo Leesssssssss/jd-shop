@@ -56,11 +56,11 @@
       <div class="chooseCount">
         <span class="chooseCountTitle">数量</span>
         <div class="chooseCountBox">
-          <img :src="minus" @click="toMinus" alt>
+          <i class="iconfont icon-jianhao" v-bind:class="{ keJian: isKeJian, buKeJian: !isKeJian }" @click="toMinus"></i>
           <div class="chooseCountBoxInput">
             <input type="text" v-model="count" value="1">
           </div>
-          <img :src="add" @click="toAdd" alt>
+          <i class="iconfont icon-jiahao1 keJian" @click="toAdd"></i>
         </div>
       </div>
     </div>
@@ -120,8 +120,7 @@ export default {
       red1: true,
       red2: false,
       count: 1,
-      minus: require("../../../assets/unMinus.png"),
-      add: require("../../../assets/add.png"),
+      isKeJian: false,
       success: false
     };
   },
@@ -129,10 +128,10 @@ export default {
     count: function(val, oldval) {
       console.log(val);
       if (val == 1) {
-        this.minus = "../../../assets/unMinus.png";
+        this.isKeJian = false;
       }
       if (val != 1) {
-        this.minus = "../../../assets/minus.png";
+        this.isKeJian = true;
       }
     }
   },
