@@ -3,13 +3,21 @@
   <div>
     <!-- 顶部 -->
     <div class="header">
-      <i class="iconfont icon-back" style="color:#909295;font-size:25px;margin:0 10px;" @click="back"></i>
+      <i
+        class="iconfont icon-back"
+        style="color:#909295;font-size:25px;margin:0 10px;"
+        @click="back"
+      ></i>
       <span class="headerText">订单列表</span>
       <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
     </div>
 
     <!-- 搜索框 -->
     <div class="search">
+      <i
+        class="iconfont icon-search"
+        style="color:#cccccc;font-size:18px;position:relative;left:30px;"
+      ></i>
       <input type="text" placeholder="商品名称/商品编号/订单号">
     </div>
 
@@ -20,7 +28,8 @@
       @select="handleSelect"
       background-color="#ffffff"
       text-color="#333333"
-      active-text-color="#e93b3d">
+      active-text-color="#e93b3d"
+    >
       <el-menu-item index="1">所有订单</el-menu-item>
       <el-menu-item index="2">待付款</el-menu-item>
       <el-menu-item index="3">待收货</el-menu-item>
@@ -38,7 +47,6 @@
       </div>
 
       <!-- @click.stop阻止事件继续传播 -->
-
       <div class="orderListItem">
         <div class="orderInfo">
           <div>
@@ -59,7 +67,7 @@
           <span class="shopNameTitle">京东</span>
         </div>
         <div class="goodsList" v-for="good in order.goods">
-          <img :src="good.pic" alt="">
+          <img :src="good.pic" alt>
           <div class="goodsInfo">
             <div class="goodsName">{{good.goodName}}</div>
             <div class="goodsCount">x{{good.count}}</div>
@@ -69,7 +77,6 @@
     </div>
 
     <div class="bottom">已经没有更多订单了~</div>
-
   </div>
 </template>
 
@@ -120,10 +127,10 @@ export default {
         });
     },
     toBuy() {
-      this.$router.push({ 'path': '/goodDetail' });
+      this.$router.push({ path: "/goodDetail" });
     },
     toOrderDetail(order) {
-      this.$router.push({ 'name': 'OrderDetail', params: { order: order } });
+      this.$router.push({ name: "OrderDetail", params: { order: order } });
     }
   }
 };

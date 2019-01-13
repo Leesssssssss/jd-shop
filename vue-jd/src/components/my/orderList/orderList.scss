@@ -14,20 +14,20 @@
 
 .search {
   width: 100%;
-  height: 6vh;
-  text-align: center;
+  height: 5vh;
+  margin: 8px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   input {
     width: 85%;
-    margin: 10px auto;
     background: #ffffff;
     height: 4vh;
+    font-size: 14px;
     border-radius: 20px 20px 20px 20px;
-    background-image: url(../../../assets/search.png);
-    background-repeat: no-repeat;
-    background-position: 15px 8px;
-    background-size: 15px 15px;
-    padding-left: 40px;
+    padding-left: 35px;
     outline: none;
+    margin-right: 25px;
   }
 }
 

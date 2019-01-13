@@ -6,7 +6,10 @@
       <div class="searchItem">
         <i class="iconfont icon-back" style="color:#909295;font-size:25px;margin:0 10px;" @click="back"></i>
       </div>
-      <input type="text" placeholder="roseonly京东超级品牌日">
+      <div class="input">
+        <i class="iconfont icon-search" style="color:#b7b7b7;font-size:18px;position:relative;left:30px;"></i>
+        <input type="text" placeholder="roseonly京东超级品牌日">
+      </div>
       <div class="searchItem">
         <i class="iconfont icon-more" style="color:#909295;font-size:25px;margin:0 10px;"></i>
       </div>

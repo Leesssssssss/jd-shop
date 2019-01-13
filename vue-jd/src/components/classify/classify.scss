@@ -12,17 +12,21 @@
   .searchItem {
     flex: 0 0 auto;
   }
-  input {
+  .input {
     flex: 1 1 auto;
-    background: #f7f7f7;
-    height: 4vh;
-    border-radius: 20px 20px 20px 20px;
-    background-image: url(../../assets/search.png);
-    background-repeat: no-repeat;
-    background-position: 15px 8px;
-    background-size: 15px 15px;
-    padding-left: 40px;
-    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+      background: #f7f7f7;
+      height: 4vh;
+      width: 80%;
+      font-size: 14px;
+      border-radius: 20px 20px 20px 20px;
+      padding-left: 35px;
+      outline: none;
+      margin-right: 25px;
+    }
   }
 }
 
@@ -58,22 +62,27 @@
   }
 }
 
-
-
 // 修改input标签placeholder文字属性
-::-webkit-input-placeholder { /* WebKit browsers */
-  font-size: 12px;
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  font-size: 14px;
   color: #757575;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  font-size: 12px;
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  font-size: 14px;
   color: #757575;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  font-size: 12px;
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  font-size: 14px;
   color: #757575;
 }
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-  font-size: 12px;
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  font-size: 14px;
   color: #757575;
 }
