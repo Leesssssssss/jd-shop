@@ -293,6 +293,18 @@ class HomeController extends Controller {
     ctx.body = getUserName;
   }
 
+  // ！！！！后台管理系统
+
+  // 获取所有用户信息
+  async getUserInfo() {
+    const ctx = this.ctx;
+
+    const User = ctx.model.User;
+    var getUserName = await User.find();
+    console.log(getUserName);
+
+    ctx.body = getUserName;
+  }
 
 }
 

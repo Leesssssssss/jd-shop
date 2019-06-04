@@ -19,7 +19,7 @@ module.exports = appInfo => {
       enable: false,
     },
     // domainWhiteList: ['http://jser.hhp.im']
-    domainWhiteList: ['localhost:8080']
+    domainWhiteList: ['localhost:8080','localhost:8081']
   };
 
   return config;

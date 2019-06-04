@@ -22,5 +22,5 @@ module.exports = app => {
   router.get('/updateOrderAddress', controller.home.updateOrderAddress);
   router.post('/addOrder', controller.home.addOrder);
   router.post('/deleteOrder', controller.home.deleteOrder);
-
+  router.get('/getUserInfo', controller.home.getUserInfo);
 };

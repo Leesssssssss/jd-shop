@@ -39,7 +39,8 @@ import axios from "axios";
 export default {
   data() {
     return {
-      order: {}
+      order: {},
+      time: ''
     };
   },
   created() {
@@ -47,7 +48,7 @@ export default {
     this.time = this.order.orderNum;
     console.log(this.order);
     axios
-      .post("http://localhost:7001/addOrder", {
+      .post("http://jd.hhp.im/addOrder", {
         userName: localStorage.userName,
         order: this.order
       })
@@ -57,7 +58,7 @@ export default {
   },
   methods: {
     orderDetail() {
-      this.$router.push({ path: "/orderDetail" });
+      this.$router.push({ name: "OrderDetail", params: { order: this.order } });
     },
     goBack() {
       this.$router.push({ path: "/" });
