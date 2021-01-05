@@ -14,7 +14,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "element-ui": "^2.4.6",
     "mint-ui": "^2.2.13",
     "v-distpicker": "^1.0.20",
